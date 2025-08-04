@@ -1,0 +1,24 @@
+/* src/font.css */
+@font-face {
+  font-family: 'Epika';
+  src: url('./fonts/NT Epika Regular (PERSONAL USE).otf') format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Epika';
+  src: url('./fonts/NT Epika Bold (PERSONAL USE).otf') format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Epika';
+  src: url('./fonts/NT Epika Medium (PERSONAL USE).otf') format('opentype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Epika';
+  src: url('./fonts/NT Epika Thin (PERSONAL USE).otf') format('opentype');
+  font-weight: 200;
+}
