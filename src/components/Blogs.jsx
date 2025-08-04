@@ -1,56 +1,48 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import "../index.css";
-const images = [
-  {
-    src: "/b1.png",
-    title: "Green is the New Black: Why Sustainability is the Future of Fashion Design",
-    category: "Sustainable Fashion",
-    button: "Read",
-  },
-  {
-    src: "https://www.istitutomarangoni.com/marangoni/entities/highlight/fashion-show-virtual.jpg",
-    title: "From Concept to Space: How Interior Designers Tell Stories Through Form and Function",
-    category: "Interior Design",
-    button: "Read",
-  },
-  {
-    src: "https://www.istitutomarangoni.com/marangoni/entities/highlight/metaverso%20(1).jpg",
-    title: "Designing for Attention: How Visual Communicators Are Adapting to Shorter Attention Spans",
-    category: "Visual Communications",
-    button: "Read",
-  },
-  {
-    src: "https://www.istitutomarangoni.com/marangoni/entities/highlight/ai-manifesto%20(1).jpg",
-    title: "Mobility Meets Emotion: How Transportation Designers Are Shaping the Future of Human-Centric Travel",
-    category: "Transportation Design",
-    button: "Read",
-  },
-  {
-    src: "https://www.istitutomarangoni.com/marangoni/entities/event/box_hp_3_milanofashion.jpg",
-    title: "Study Smarter",
-    category: "Education",
-    button: "Read",
-  },
-];
+
+
+
 
 const ImageSlider = () => {
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const query = `*[_type == "blog"]{
+      title,
+      blogType->{type},
+      "imageUrl": image.asset->url
+    }`;
+
+    const encodedQuery = encodeURIComponent(query);
+
+    fetch(`https://poxqiqf3.api.sanity.io/v2021-10-21/data/query/production?query=${encodedQuery}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch from Sanity");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setBlogs(data.result);
+      })
+      .catch((err) => {
+        console.error("Error fetching blogs:", err);
+      });
   }, []);
+if (!blogs.length) {
+  return <div className="text-center py-10">Loading...</div>;
+}
 
   const prev = () => {
     setAnimate(false);
     setTimeout(() => {
-      setIndex((prev) => (prev - 1 + images.length) % images.length);
+      setIndex((prev) => (prev - 1 + blogs.length) % blogs.length);
       setAnimate(true);
     }, 100);
   };
@@ -58,17 +50,18 @@ const ImageSlider = () => {
   const next = () => {
     setAnimate(false);
     setTimeout(() => {
-      setIndex((prev) => (prev + 1) % images.length);
+      setIndex((prev) => (prev + 1) % blogs.length);
       setAnimate(true);
     }, 100);
   };
 
-  const leftImage = images[index % images.length];
-  const centerImage = images[(index + 1) % images.length];
-  const rightImage = images[(index + 2) % images.length];
+  const leftImage = blogs[index % blogs.length];
+  const centerImage = blogs[(index + 1) % blogs.length];
+  const rightImage = blogs[(index + 2) % blogs.length];
 
   return (
     <div className="w-full px-4 py-4">
+      
       {/* Responsive Layout */}
       <div className="flex flex-col sm:flex-row w-full gap-6 justify-center items-stretch">
 
@@ -78,7 +71,7 @@ const ImageSlider = () => {
   className={`w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg bg-white relative transition-all duration-700 ease-in-out ${!isMobile && animate ? 'reveal-top-bottom' : (!isMobile ? 'opacity-0' : '')}`}
 >
   <img
-    src={leftImage.src}
+    src={leftImage.imageUrl}
     alt="Left"
     className="w-full h-full object-cover object-left-top absolute inset-0"
     style={!isMobile ? {transition:'clip-path 0.7s cubic-bezier(0.4,0,0.2,1)',clipPath: animate ? 'inset(0% 0% 0% 0%)' : 'inset(100% 0% 0% 0%)'} : {}}
@@ -91,7 +84,7 @@ const ImageSlider = () => {
               <div className="pr-2">
                 <h1 className="text-xl md:text-2xl font-bold text-gray-800 line-clamp-2">{leftImage.title}</h1>
                 <span className="mt-2 inline-block border border-gray-400 px-2.5 py-1 text-sm text-gray-600 rounded-full uppercase tracking-wide">
-                  {leftImage.category}
+                  {leftImage.blogType.type}
                 </span>
               </div>
              <button className="bg-black text-white px-3 py-2 rounded-full mt-1 hover:bg-white hover:text-black transition-all duration-300 group cursor-pointer">
@@ -106,7 +99,7 @@ const ImageSlider = () => {
         <div className="w-full sm:w-[90%] md:w-[30%] flex flex-col gap-2">
           <div className={`rounded-lg overflow-hidden shadow relative transition-all duration-700 ease-in-out ${isMobile && animate ? 'reveal-top-bottom' : (isMobile ? 'opacity-0' : '')}`} style={{minHeight:'250px'}}>
             <img
-              src={centerImage.src}
+              src={centerImage.imageUrl}
               alt="Center"
               className="w-full h-[250px] sm:h-[300px] md:h-[250px] object-cover absolute inset-0"
               style={isMobile ? {transition:'clip-path 0.7s cubic-bezier(0.4,0,0.2,1)',clipPath: animate ? 'inset(0% 0% 0% 0%)' : 'inset(100% 0% 0% 0%)'} : {}}
@@ -117,7 +110,7 @@ const ImageSlider = () => {
               <div className="pr-2">
                 <h1 className="text-lg sm:text-xl font-semibold line-clamp-2">{centerImage.title}</h1>
                 <span className="mt-1 inline-block border border-gray-400 px-2.5 py-1 text-sm text-gray-600 rounded-full uppercase tracking-wide">
-                  {centerImage.category}
+                  {centerImage.blogType.type}
                 </span>
               </div>
              <button className="bg-black text-white px-3 py-2 rounded-full mt-1 hover:bg-white hover:text-black transition-all duration-300 group cursor-pointer">
@@ -131,14 +124,14 @@ const ImageSlider = () => {
         {/* Right Image (hidden on small screens) */}
         <div className="hidden md:flex w-full md:w-[15%] flex-col gap-2">
           <div className="rounded-lg overflow-hidden shadow">
-            <img src={rightImage.src} alt="Right" className="w-full h-[250px] object-cover" />
+            <img src={rightImage.imageUrl} alt="Right" className="w-full h-[250px] object-cover" />
           </div>
           <div className="relative min-h-[130px]">
             <div className="flex justify-between items-start mb-4">
               <div className="pr-2">
                 <h1 className="text-base md:text-lg font-semibold line-clamp-2">{rightImage.title}</h1>
                 <span className="mt-1 inline-block border border-gray-400 px-2 py-1 text-xs text-gray-600 rounded-full uppercase tracking-wide">
-                  {rightImage.category}
+                  {rightImage.blogType.type}
                 </span>
               </div>
               <button className="bg-black text-white px-3 py-2 rounded-full mt-1 hover:bg-white hover:text-black transition-all duration-300 group cursor-pointer">

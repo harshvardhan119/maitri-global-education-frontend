@@ -1,28 +1,48 @@
-import React, { useState } from "react";
-
-const locations = [
-  { name: "MILANO FASHION", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Milano.jpg" },
-  { name: "MILANO DESIGN", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Design.jpg" },
-  { name: "FIRENZE", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Firenze.jpg" },
-  { name: "PARIS", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Paris.jpg" },
-  { name: "LONDON", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/London.jpg" },
-  { name: "DUBAI", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/dubai.jpg" },
-  { name: "RIYADH", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/image003.jpg" },
-  { name: "MUMBAI", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Mumbai.jpg" },
-  { name: "SHANGHAI", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Shanghai.jpg" },
-  { name: "SHENZHEN", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Shenzhen.jpg" }
-];
+import React, { useEffect, useState } from "react";
 
 const Locations = () => {
   const [current, setCurrent] = useState(0);
+  const [campuses, setCampuses] = useState([]);
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % locations.length);
+    setCurrent((prev) => (prev + 1) % campuses.length);
   };
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + locations.length) % locations.length);
+    setCurrent((prev) => (prev - 1 + campuses.length) % campuses.length);
   };
+
+  useEffect(() => {
+    const query = `*[_type == "campus"]{
+      name,
+      country,
+      "imageUrl": image.asset->url
+    }[0...10]`;
+
+    const encodedQuery = encodeURIComponent(query);
+
+    fetch(`https://poxqiqf3.api.sanity.io/v2021-10-21/data/query/production?query=${encodedQuery}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch from Sanity");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setCampuses(data.result);
+      })
+      .catch((err) => {
+        console.error("Error fetching campuses:", err);
+      });
+  }, []);
+
+  if (!campuses.length) {
+    return (
+      <div className="bg-[#2d2d2d] min-h-screen w-full px-4 py-10 text-center text-white">
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <div className="bg-[#2d2d2d] min-h-screen w-full px-4 py-10">
@@ -40,9 +60,13 @@ const Locations = () => {
         {/* Mobile View */}
         <div className="block md:hidden mt-10">
           <div className="flex flex-col items-center">
-            <span className="text-md font-bold text-white mb-4 tracking-wide">{locations[current].name}</span>
+            <span className="text-md font-bold text-white mb-4 tracking-wide">{campuses[current].name}</span>
             <div className="bg-white p-2 shadow-lg w-full aspect-square flex items-center justify-center overflow-hidden">
-              <img src={locations[current].img} alt={locations[current].name} className="object-contain w-full h-full" />
+              <img
+                src={campuses[current].imageUrl}
+                alt={campuses[current].name}
+                className="object-contain w-full h-full"
+              />
             </div>
             <div className="flex justify-between w-full mt-4">
               <button onClick={prevSlide} className="text-white text-xl px-4">←</button>
@@ -53,12 +77,16 @@ const Locations = () => {
 
         {/* Desktop View */}
         <div className="hidden md:grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mt-6">
-          {locations.map((loc, idx) => (
+          {campuses.map((campus, idx) => (
             <div key={idx} className="flex flex-col items-center">
               <div className="bg-white p-2 shadow-lg w-full aspect-square flex items-center justify-center overflow-hidden transition-transform duration-300">
-                <img src={loc.img} alt={loc.name} className="object-contain w-full h-full transition-transform duration-300 hover:scale-110" />
+                <img
+                  src={campus.imageUrl}
+                  alt={campus.name}
+                  className="object-contain w-full h-full transition-transform duration-300 hover:scale-110"
+                />
               </div>
-              <span className="text-md font-bold text-white mt-3 tracking-wide">{loc.name}</span>
+              <span className="text-md font-bold text-white mt-3 tracking-wide">{campus.name}</span>
             </div>
           ))}
         </div>
