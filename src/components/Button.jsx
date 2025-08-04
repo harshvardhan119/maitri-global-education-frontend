@@ -65,6 +65,22 @@ const StyledWrapper = styled.div`
     padding: 1rem 2rem;
     position: relative;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    .btn-31 {
+      width: 100%;
+      padding: 0.5rem 0.2rem;
+      font-size: 8px;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+    .btn-31 .text {
+      font-size: 12px;
+    }
   }
 
   .btn-31:before {
