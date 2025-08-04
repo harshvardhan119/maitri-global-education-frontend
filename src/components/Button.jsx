@@ -7,7 +7,7 @@ const Button = ({text}) => {
     <StyledWrapper>
       <button className="btn-31">
         <span className="text-container">
-          <span className="text font-cinzel text-[12px]">{text}</span>
+          <span className="text font-roboto text-[10px]">{text}</span>
         </span>
       </button>
     </StyledWrapper>
@@ -36,7 +36,7 @@ const StyledWrapper = styled.div`
       Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
       Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     font-size: 100%;
-    font-weight: 900;
+    font-weight: 200;
     line-height: 1.5;
     margin: 0;
     -webkit-mask-image: -webkit-radial-gradient(#000, #fff);

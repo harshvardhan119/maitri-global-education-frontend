@@ -16,7 +16,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-black text-yellow-500 z-20 font-cinzel font-normal">
+    <nav  style={{ fontFamily: 'roboto'}} className="w-full bg-black text-gray-300 z-20  font-thin">
       {/* Hamburger for mobile - always top right */}
       <button
         className="md:hidden absolute top-3 right-4 p-2 focus:outline-none z-50"
@@ -39,13 +39,13 @@ export default function Navbar() {
       {/* Row 2: Nav Links */}
       <div className="relative">
         {/* Nav links (desktop) */}
-        <div className="hidden md:flex justify-center gap-6 py-1 text-sm md:text-base">
+        <div className="hidden md:flex justify-center gap-14 py-1 text-sm md:text-base">
           {navLinks.map((item, id) => (
             <a
-            style={{ fontFamily: 'Roboto'}}
+           
               key={id}
               href={item.href}
-              className="hover:text-yellow-300 transition-colors duration-200 font-thin"
+              className="hover:text-white transition-colors duration-200 text-sm"
             >
               {item.title}
             </a>
