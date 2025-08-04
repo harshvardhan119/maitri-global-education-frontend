@@ -42,9 +42,10 @@ export default function Navbar() {
         <div className="hidden md:flex justify-center gap-6 py-1 text-sm md:text-base">
           {navLinks.map((item, id) => (
             <a
+            style={{ fontFamily: 'Roboto'}}
               key={id}
               href={item.href}
-              className="hover:text-yellow-300 transition-colors duration-200 font-normal"
+              className="hover:text-yellow-300 transition-colors duration-200 font-thin"
             >
               {item.title}
             </a>
