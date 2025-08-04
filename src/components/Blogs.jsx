@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import "../index.css";
 const images = [
@@ -37,6 +37,15 @@ const images = [
 const ImageSlider = () => {
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const prev = () => {
     setAnimate(false);
@@ -66,14 +75,13 @@ const ImageSlider = () => {
         {/* Left Image (hidden on small screens) */}
         <div className="hidden md:flex w-full md:w-[35%] flex-col gap-4">
         <div
-  className={`w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg transform transition-all duration-700 ease-in-out bg-white ${
-    animate ? "reveal-top-bottom" : "opacity-0"
-  }`}
+  className={`w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg bg-white relative transition-all duration-700 ease-in-out ${!isMobile && animate ? 'reveal-top-bottom' : (!isMobile ? 'opacity-0' : '')}`}
 >
   <img
     src={leftImage.src}
     alt="Left"
-    className="w-full h-full object-cover object-left-top"
+    className="w-full h-full object-cover object-left-top absolute inset-0"
+    style={!isMobile ? {transition:'clip-path 0.7s cubic-bezier(0.4,0,0.2,1)',clipPath: animate ? 'inset(0% 0% 0% 0%)' : 'inset(100% 0% 0% 0%)'} : {}}
   />
 </div>
 
@@ -96,11 +104,12 @@ const ImageSlider = () => {
 
         {/* Center Image (always visible) */}
         <div className="w-full sm:w-[90%] md:w-[30%] flex flex-col gap-2">
-          <div className="rounded-lg overflow-hidden shadow">
+          <div className={`rounded-lg overflow-hidden shadow relative transition-all duration-700 ease-in-out ${isMobile && animate ? 'reveal-top-bottom' : (isMobile ? 'opacity-0' : '')}`} style={{minHeight:'250px'}}>
             <img
               src={centerImage.src}
               alt="Center"
-              className="w-full h-[250px] sm:h-[300px] md:h-[250px] object-cover"
+              className="w-full h-[250px] sm:h-[300px] md:h-[250px] object-cover absolute inset-0"
+              style={isMobile ? {transition:'clip-path 0.7s cubic-bezier(0.4,0,0.2,1)',clipPath: animate ? 'inset(0% 0% 0% 0%)' : 'inset(100% 0% 0% 0%)'} : {}}
             />
           </div>
           <div className="relative min-h-[130px]">

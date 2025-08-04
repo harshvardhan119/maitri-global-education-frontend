@@ -3,7 +3,7 @@ import "../font.css";
 
 const baseImages = [
   {
-    src: "/c.png",
+    src: "https://maitriglobaleducation.com/crm/public/uploads/event/image/6623a51e5fffd.jpg",
     title: "Mountains",
     subtitle: "Where silence speaks",
     desc: "Peaceful view of the mountains with serene skies and fresh air.",
@@ -66,7 +66,7 @@ const ImageCarousel = () => {
     <div className="w-full flex justify-center">
   <h1
     style={{ fontFamily: 'Epika' }}
-    className="inline-block bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-2 leading-tight tracking-wide uppercase drop-shadow-xl"
+    className="inline-block bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-2 leading-tight tracking-wide uppercase drop-shadow-lg"
   >
     Events & Engagements
   </h1>
