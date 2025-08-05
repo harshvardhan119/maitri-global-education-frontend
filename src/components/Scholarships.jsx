@@ -23,7 +23,7 @@ const Scholarships = () => {
   const visibleScholarships = scholarships.slice(start, start + itemsPerPage);
 
   return (
-    <section className="w-full flex flex-col items-center py-8 px-2">
+    <section className="w-full bg-[#2d2d2d] flex flex-col items-center py-8 px-2">
       <h1
         style={{ fontFamily: "Epika", fontWeight: "bold" }}
         className="bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-wide uppercase drop-shadow-xl"

@@ -24,7 +24,7 @@ const baseImages = [
     buttons: ["Discover", "Wildlife", "Gallery", "Join Us"],
   },
   {
-    src: "/c.png",
+    src: "/sch.png",
     title: "Desert",
     subtitle: "Golden Tranquility",
     desc: "The golden dunes hold secrets of time and endless stories.",
@@ -61,7 +61,7 @@ const ImageCarousel = () => {
   const currentImage = baseImages[current];
 
   return (
-    <div className="w-full py-8 px-4 sm:px-8 md:px-16 lg:px-24">
+    <div className="bg-[#2d2d2d] w-full py-8 px-4 sm:px-8 md:px-16 lg:px-24">
       {/* Heading */}
     <div className="w-full flex justify-center">
   <h1
@@ -92,9 +92,9 @@ const ImageCarousel = () => {
             />
           </div>
           <div className="mt-2">
-            <h2 className="text-sm font-semibold text-gray-800">{baseImages[prev].title}</h2>
-            <p className="text-xs text-gray-600">{baseImages[prev].subtitle}</p>
-            <button className="mt-1 px-3 py-1 text-xs bg-yellow-500 text-white rounded-full hover:bg-yellow-600">
+            <h2 className="text-sm font-semibold text-white">{baseImages[prev].title}</h2>
+            <p className="text-xs text-white">{baseImages[prev].subtitle}</p>
+            <button className="mt-1 px-3 py-1 text-xs bg-gray-500 text-white rounded-full hover:bg-black">
               {baseImages[prev].buttons[0]}
             </button>
           </div>
@@ -110,14 +110,14 @@ const ImageCarousel = () => {
             />
           </div>
           <div className="mt-4 px-2 sm:px-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">{currentImage.title}</h2>
-            <h3 className="text-md sm:text-lg text-gray-600">{currentImage.subtitle}</h3>
-            <p className="text-sm text-gray-500 mt-2">{currentImage.desc}</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-white">{currentImage.title}</h2>
+            <h3 className="text-md sm:text-lg text-white">{currentImage.subtitle}</h3>
+            <p className="text-sm text-white mt-2">{currentImage.desc}</p>
             <div className="flex flex-wrap gap-2 mt-3">
               {currentImage.buttons.map((btn, idx) => (
                 <button
                   key={idx}
-                  className="px-3 py-1 text-sm bg-yellow-500 text-white rounded-full hover:bg-yellow-600 transition"
+                  className="px-3 py-1 text-sm bg-gray-500 text-white rounded-full hover:bg-black transition"
                 >
                   {btn}
                 </button>
@@ -136,9 +136,9 @@ const ImageCarousel = () => {
             />
           </div>
           <div className="mt-2">
-            <h2 className="text-sm font-semibold text-gray-800">{baseImages[next].title}</h2>
-            <p className="text-xs text-gray-600">{baseImages[next].subtitle}</p>
-            <button className="mt-1 px-3 py-1 text-xs bg-yellow-500 text-white rounded-full hover:bg-yellow-600">
+            <h2 className="text-sm font-semibold text-white">{baseImages[next].title}</h2>
+            <p className="text-xs text-white">{baseImages[next].subtitle}</p>
+            <button className="mt-1 px-3 py-1 text-xs bg-gray-500 text-white rounded-full hover:bg-black">
               {baseImages[next].buttons[0]}
             </button>
           </div>
