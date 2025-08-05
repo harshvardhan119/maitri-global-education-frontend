@@ -3,46 +3,32 @@ import "../font.css";
 
 const baseImages = [
   {
-    src: "https://maitriglobaleducation.com/crm/public/uploads/event/image/6623a51e5fffd.jpg",
+    src: "/e1.png",
     title: "Mountains",
     subtitle: "Where silence speaks",
     desc: "Peaceful view of the mountains with serene skies and fresh air.",
     buttons: ["Trek Now", "Gallery", "Explore", "Share"],
   },
   {
-    src: "/d.jpeg",
+    src: "/e2.png",
     title: "Ocean",
     subtitle: "The blue abyss",
     desc: "Waves crashing onto the shore bring calmness and inspiration.",
     buttons: ["Sail Away", "Dive In", "Gallery", "Subscribe"],
   },
   {
-    src: "/e.jpg",
+    src: "/e3.png",
     title: "Forest",
     subtitle: "Nature’s Heartbeat",
     desc: "Feel the breath of the Earth with green surroundings and calm.",
     buttons: ["Discover", "Wildlife", "Gallery", "Join Us"],
   },
   {
-    src: "/sch.png",
+    src: "/e4.png",
     title: "Desert",
     subtitle: "Golden Tranquility",
     desc: "The golden dunes hold secrets of time and endless stories.",
     buttons: ["Ride Now", "Heatwave", "Gallery", "Follow"],
-  },
-  {
-    src: "/d.jpeg",
-    title: "City",
-    subtitle: "Concrete Dreams",
-    desc: "Skyscrapers touching clouds, buzzing with energy and ambition.",
-    buttons: ["Visit", "Nightlife", "Gallery", "Subscribe"],
-  },
-  {
-    src: "/e.jpg",
-    title: "Valley",
-    subtitle: "Green Serenity",
-    desc: "Lush valleys and flowing rivers create pure visual poetry.",
-    buttons: ["View More", "Nature Trails", "Gallery", "Sign Up"],
   },
 ];
 
