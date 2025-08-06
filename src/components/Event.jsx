@@ -81,7 +81,7 @@ const ImageCarousel = () => {
           <div className="mt-2">
             <h2 className="text-sm font-semibold text-white">{baseImages[prev].title}</h2>
             <p className="text-xs text-white">{baseImages[prev].subtitle}</p>
-            <button className="mt-1 px-3 py-1 text-xs bg-gray-500 text-white rounded-full hover:bg-black">
+            <button className="mt-1 px-3 py-1 text-xs text-white rounded-full hover:bg-black">
               {baseImages[prev].buttons[0]}
             </button>
           </div>
@@ -112,7 +112,7 @@ const ImageCarousel = () => {
               {currentImage.buttons.map((btn, idx) => (
                 <button
                   key={idx}
-                  className="px-3 py-1 text-sm bg-gray-500 text-white rounded-full hover:bg-black transition"
+                  className="px-3 py-1 text-sm  text-white rounded-full hover:bg-black transition"
                 >
                   {btn}
                 </button>
@@ -139,7 +139,7 @@ const ImageCarousel = () => {
           <div className="mt-2">
             <h2 className="text-sm font-semibold text-white">{baseImages[next].title}</h2>
             <p className="text-xs text-white">{baseImages[next].subtitle}</p>
-            <button className="mt-1 px-3 py-1 text-xs bg-gray-500 text-white rounded-full hover:bg-black">
+            <button className="mt-1 px-3 py-1 text-xs text-white rounded-full hover:bg-black">
               {baseImages[next].buttons[0]}
             </button>
           </div>
