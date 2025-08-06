@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 
-// const locations = [
-//   { name: "MILANO FASHION", img: "a.png" },
-//   { name: "MILANO DESIGN", img: "b.png" },
-//   { name: "FIRENZE", img: "c.png" },
-//   { name: "PARIS", img: "d.png" },
-//   { name: "LONDON", img: "e.png" },
-//   { name: "DUBAI", img: "f.png" },
-//   { name: "RIYADH", img: "g.png" },
-//   { name: "MUMBAI", img: "h.png" },
-//   { name: "SHANGHAI", img: "i.png" },
-//   { name: "SHENZHEN", img: "j.png" },
-// ];
 const locations = [
-  { name: "MILANO FASHION", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Milano.jpg" },
-  { name: "MILANO DESIGN", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Design.jpg" },
-  { name: "FIRENZE", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Firenze.jpg" },
-  { name: "PARIS", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Paris.jpg" },
-  { name: "LONDON", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/London.jpg" },
-  { name: "DUBAI", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/dubai.jpg" },
-  { name: "RIYADH", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/image003.jpg" },
-  { name: "MUMBAI", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Mumbai.jpg" },
-  { name: "SHANGHAI", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Shanghai.jpg" },
-  { name: "SHENZHEN", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Shenzhen.jpg" },
+  { name: "MILANO FASHION", img: "a.png" },
+  { name: "MILANO DESIGN", img: "b.png" },
+  { name: "FIRENZE", img: "c.png" },
+  { name: "PARIS", img: "d.png" },
+  { name: "LONDON", img: "e.png" },
+  { name: "DUBAI", img: "f.png" },
+  { name: "RIYADH", img: "g.png" },
+  { name: "MUMBAI", img: "h.png" },
+  { name: "SHANGHAI", img: "i.png" },
+  { name: "SHENZHEN", img: "j.png" },
 ];
+// const locations = [
+//   { name: "MILANO FASHION", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Milano.jpg" },
+//   { name: "MILANO DESIGN", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Design.jpg" },
+//   { name: "FIRENZE", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Firenze.jpg" },
+//   { name: "PARIS", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Paris.jpg" },
+//   { name: "LONDON", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/London.jpg" },
+//   { name: "DUBAI", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/dubai.jpg" },
+//   { name: "RIYADH", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/image003.jpg" },
+//   { name: "MUMBAI", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Mumbai.jpg" },
+//   { name: "SHANGHAI", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Shanghai.jpg" },
+//   { name: "SHENZHEN", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Shenzhen.jpg" },
+// ];
 
 const Locations = () => {
   const [current, setCurrent] = useState(0);
