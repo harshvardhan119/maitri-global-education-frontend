@@ -1,108 +1,228 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-const scholarships = [
-  { img: "/1.png", title: "Early Bird Scholarship", description: "Apply early to secure your spot and enjoy exclusive benefits. Limited seats available!", cta: "Apply Now" },
-  { img: "/2.png", title: "Merit Scholarship", description: "Awarded to students with outstanding academic achievements.", cta: "Apply Now" },
-  { img: "/3.png", title: "Women in Design", description: "Supporting women pursuing careers in design and creative fields.", cta: "Apply Now" },
-  { img: "/4.png", title: "International Student Grant", description: "Special grants for international students joining our programs.", cta: "Apply Now" },
-  { img: "/5.png", title: "Leadership Award", description: "For students who have demonstrated exceptional leadership skills.", cta: "Apply Now" },
-  { img: "/6.png", title: "Community Service Scholarship", description: "Recognizing students making a difference in their communities.", cta: "Apply Now" },
-  { img: "/b1.png", title: "Creative Talent Scholarship", description: "For students with a strong creative portfolio.", cta: "Apply Now" }
+const slides = [
+  {
+    image: "/s1.png",
+    heading: "€10,000",
+    subheading: "SCHOLARSHIP",
+    text: "ALL POSTGRADUATE PROGRAMS",
+    tag: "istitutomarangoni",
+    tagline: "enhancing talent since 1935",
+  },
+  {
+    image: "/s2.png",
+    heading: "€12,000",
+    subheading: "SCHOLARSHIP",
+    text: "ALL POSTGRADUATE PROGRAMS",
+    tag: "globalacademy",
+    tagline: "inspiring leaders of tomorrow",
+  },
+  {
+    image: "/s3.png",
+    heading: "€15,000",
+    subheading: "SCHOLARSHIP",
+    text: "ALL POSTGRADUATE PROGRAMS",
+    tag: "intellectus",
+    tagline: "bridging cultures through education",
+  },
+  {
+    image: "/s4.png",
+    heading: "€18,000",
+    subheading: "FUNDING",
+    text: "FOR OVERSEAS STUDENTS",
+    tag: "novusuni",
+    tagline: "learning without limits",
+  },
+  {
+    image: "/s5.png",
+    heading: "€18,000",
+    subheading: "FUNDING",
+    text: "FOR OVERSEAS STUDENTS",
+    tag: "novusuni",
+    tagline: "learning without limits",
+  },
+  {
+    image: "/s6.png",
+    heading: "€18,000",
+    subheading: "FUNDING",
+    text: "FOR OVERSEAS STUDENTS",
+    tag: "novusuni",
+    tagline: "learning without limits",
+  },
 ];
 
-const Scholarships = () => {
-  const [start, setStart] = useState(0);
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const itemsPerPage = isMobile ? 1 : 3;
-  const maxStart = scholarships.length - itemsPerPage;
+const CustomClipLayout = () => {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState("right");
 
-  const prev = () => setStart((prev) => (prev <= 0 ? maxStart : prev - 1));
-  const next = () => setStart((prev) => (prev >= maxStart ? 0 : prev + 1));
+  const slide = slides[current];
+  const isEven = current % 2 === 1;
 
-  const visibleScholarships = scholarships.slice(start, start + itemsPerPage);
+  const prev = () => {
+    setDirection("left");
+    setCurrent((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const next = () => {
+    setDirection("right");
+    setCurrent((prevIndex) =>
+      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   return (
-    <section className="w-full bg-[#2d2d2d] flex flex-col items-center py-8 px-2">
-      <h1
-        style={{ fontFamily: "Epika", fontWeight: "bold" }}
-        className="bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-wide uppercase drop-shadow-xl"
-      >
-        Scholarships
-      </h1>
+    <div className="w-full h-screen bg-[#2d2d2d] overflow-hidden">
+      {/* For sm, md, lg – Image Top + Content Below */}
+      <div className="xl:hidden flex flex-col w-full h-full">
+        {/* Image Top */}
+        <div className="w-full h-1/2">
+          <img
+            src={slide.image}
+            alt="Slide"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-      {/* Scholarships Grid */}
-      <div className="w-full flex justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl relative">
-          {visibleScholarships.map((sch, idx) => (
-            <div
-              key={idx}
-              className="relative bg-white rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] min-h-[400px] flex flex-col items-center group"
-            >
-              {/* Image */}
-              <div className="relative w-full aspect-square overflow-hidden z-0">
-                <img
-                  src={sch.img}
-                  alt={sch.title}
-                  className="w-full h-full object-cover"
-                />
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-
-                {/* Description + CTA */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 p-4 text-center">
-                  <p className="text-white text-sm md:text-base mb-3">{sch.description}</p>
-                  {/* <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200">
-                    {sch.cta}
-                  </button> */}
-                  {/* <Button></Button> */}
-                  <Button text={sch.cta}/>
-                </div>
-              </div>
-
-              {/* Title */}
-              <div className="mt-4 px-4 text-center">
-                <h3 style={{ fontFamily: 'Anton' }} className="text-lg md:text-xl text-black-800">{sch.title}</h3>
-              </div>
+        {/* Content – No top/bottom margin or padding */}
+        <div className="bg-[#2d2d2d] flex-1 flex items-center justify-center text-center px-0 py-0 md:px-0 md:py-0">
+          <div className="flex flex-col items-center justify-center gap-2">
+            <img
+              src="https://landing.istitutomarangoni.com/images/logo_marangoni.svg"
+              alt="Logo"
+              className="w-36 h-auto"
+            />
+            <h1 style={{ fontFamily: "Epika" }} className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-2 leading-tight tracking-wide uppercase drop-shadow-lg" >
+              {slide.heading}
+            </h1>
+            <h2 className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-2 leading-tight tracking-wide uppercase drop-shadow-lg" style={{ fontFamily: "Epika" }}>
+              {slide.subheading}
+            </h2>
+            <p className="text-lg font-medium text-white mb-2">{slide.text}</p>
+            <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition mb-4">
+              Apply Now
+            </button>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={prev}
+                className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold"
+              >
+                &#8592;
+              </button>
+              <button
+                onClick={next}
+                className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold"
+              >
+                &#8594;
+              </button>
             </div>
-          ))}
+          </div>
         </div>
       </div>
 
-      {/* Navigation Buttons for Mobile */}
-      <div className="flex justify-between w-full max-w-xs mt-6 md:hidden">
-        <button
-          onClick={prev}
-          className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold"
+      {/* For xl and up – Clip-path Side Layout */}
+      <div
+        key={current}
+        className={`hidden xl:block relative w-full h-full overflow-hidden ${
+          direction === "right" ? "animate-slide-right" : "animate-slide-left"
+        }`}
+      >
+        {/* Clipped Image */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            clipPath: isEven
+              ? "polygon(25% 0, 100% 0, 100% 100%, 52% 100%)"
+              : "polygon(0 1%, 75% 0, 46% 100%, 0% 100%)",
+          }}
         >
-          &#8592;
-        </button>
-        <button
-          onClick={next}
-          className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold"
+          <img
+            src={slide.image}
+            alt="Slide"
+            className="w-full h-full object-cover transition-all duration-500"
+          />
+        </div>
+
+        {/* Side Content */}
+        <div
+          className={`absolute inset-0 bg-[#2d2d2d] z-0 flex items-center ${
+            isEven ? "justify-start pl-20" : "justify-end pr-20"
+          }`}
         >
-          &#8594;
-        </button>
+          <div className="max-w-md text-white text-center z-20">
+            <div className="flex justify-center mb-4">
+              <img
+                src="https://landing.istitutomarangoni.com/images/logo_marangoni.svg"
+                alt="Logo"
+                className="w-48 h-auto"
+              />
+            </div>
+            <h1 className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-2 leading-tight tracking-wide uppercase drop-shadow-lg" style={{ fontFamily: "Epika" }}>
+              {slide.heading}
+            </h1>
+            <h2 className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-2 leading-tight tracking-wide uppercase drop-shadow-lg" style={{ fontFamily: "Epika" }}>
+              {slide.subheading}
+            </h2>
+            <p style={{ fontFamily: "Roboto" }} className="text-2xl font-thin my-6">{slide.text}</p>
+
+            <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 hover:cursor-pointer">
+              Apply Now
+            </button>
+           
+
+
+            <div className="flex justify-center gap-4 mt-6">
+              <button
+                onClick={prev}
+                className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold hover:scale-105 hover:cursor-pointer"
+
+              >
+                &#8592;
+              </button>
+              <button
+                onClick={next}
+                className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold hover:scale-105 hover:cursor-pointer"
+              >
+                &#8594;
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Navigation Buttons for Desktop - aligned below cards */}
-      <div className="hidden md:flex justify-between w-full max-w-6xl mt-8 px-2">
-        <button
-          onClick={prev}
-          className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold"
-        >
-          &#8592;
-        </button>
-        <button
-          onClick={next}
-          className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold"
-        >
-          &#8594;
-        </button>
-      </div>
-    </section>
+      {/* Slide Animations */}
+      <style>{`
+        .animate-slide-right {
+          animation: slideRight 1s ease-in-out;
+        }
+        .animate-slide-left {
+          animation: slideLeft 1s ease-in-out;
+        }
+        @keyframes slideRight {
+          0% {
+            transform: translateX(100%);
+            opacity: 0.7;
+          }
+          100% {
+            transform: translateX(0%);
+            opacity: 1;
+          }
+        }
+        @keyframes slideLeft {
+          0% {
+            transform: translateX(-100%);
+            opacity: 0.7;
+          }
+          100% {
+            transform: translateX(0%);
+            opacity: 1;
+          }
+        }
+      `}</style>
+    </div>
   );
 };
 
-export default Scholarships;
+export default CustomClipLayout;
