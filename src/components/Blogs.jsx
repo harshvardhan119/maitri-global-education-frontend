@@ -69,9 +69,9 @@ const ImageSlider = () => {
 
   return (
     <div className="w-full px-4 py-4">
-      <h1
+      <h1 
           style={{ fontFamily: "Epika", fontWeight: "bold" }}
-          className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-2 ml-40 leading-tight tracking-wide uppercase drop-shadow-lg"
+          className="bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#f5deb3] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-2 text-center leading-tight tracking-wide uppercase drop-shadow-lg"
         >
          Blogs
         </h1>

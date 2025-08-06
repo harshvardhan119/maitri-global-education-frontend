@@ -74,7 +74,8 @@ const Scholarships = () => {
   };
 
   return (
-    <div className="w-full h-[70vh] bg-[#2d2d2d] overflow-hidden">
+    <div className="w-full h-[70vh] sm:h-[80vh] bg-[#2d2d2d] overflow-hidden">
+
 
       {/* For sm, md, lg – Image Top + Content Below */}
       <div className="xl:hidden flex flex-col w-full h-full">
