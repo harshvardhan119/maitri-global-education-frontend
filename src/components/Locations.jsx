@@ -1,16 +1,29 @@
 import React, { useState } from "react";
 
+// ITALY
+// GERMANY
+// VOGUE
+// NEDERLAND
+// SPAIN
+// FRANCE
+// CANADA
+// USA
+// UK
+// DUBAI
+
 const locations = [
-  { name: "MILANO FASHION", img: "a.png" },
-  { name: "MILANO DESIGN", img: "b.png" },
-  { name: "FIRENZE", img: "c.png" },
-  { name: "PARIS", img: "d.png" },
-  { name: "LONDON", img: "e.png" },
-  { name: "DUBAI", img: "f.png" },
-  { name: "RIYADH", img: "g.png" },
-  { name: "MUMBAI", img: "h.png" },
-  { name: "SHANGHAI", img: "i.png" },
-  { name: "SHENZHEN", img: "j.png" },
+  { name: "ITALY", img: "a.png" },
+  { name: "GERMANY", img: "b.png" },
+  { name: "MEXICO", img: "c.png" },
+  { name: "NEDERLAND", img: "d.png" },
+  { name: "SPAIN", img: "e.png" },
+  { name: "FRANCE", img: "f.png" },
+  { name: "CANADA", img: "g.png" },
+  { name: "USA", img: "h.png" },
+  { name: "UK", img: "i.png" },
+  { name: "DUBAI", img: "j.png" },
+
+
 ];
 // const locations = [
 //   { name: "MILANO FASHION", img: "https://www.istitutomarangoni.com/marangoni/entities/campus/Milano.jpg" },

@@ -3,28 +3,28 @@ import "../font.css";
 
 const baseImages = [
   {
-    src: "/e1.jpg",
+    src: "/e1.png",
     title: "Mountains",
     subtitle: "Where silence speaks",
     desc: "Peaceful view of the mountains with serene skies and fresh air.",
     buttons: ["Trek Now", "Gallery", "Explore", "Share"],
   },
   {
-    src: "/e2.jpg",
+    src: "/e2.png",
     title: "Ocean",
     subtitle: "The blue abyss",
     desc: "Waves crashing onto the shore bring calmness and inspiration.",
     buttons: ["Sail Away", "Dive In", "Gallery", "Subscribe"],
   },
   {
-    src: "/e3.jpg",
+    src: "/e3.png",
     title: "Forest",
     subtitle: "Nature’s Heartbeat",
     desc: "Feel the breath of the Earth with green surroundings and calm.",
     buttons: ["Discover", "Wildlife", "Gallery", "Join Us"],
   },
   {
-    src: "/e4.jpg",
+    src: "/e4.png",
     title: "Desert",
     subtitle: "Golden Tranquility",
     desc: "The golden dunes hold secrets of time and endless stories.",

@@ -52,7 +52,7 @@ const slides = [
   },
 ];
 
-const CustomClipLayout = () => {
+const Scholarships = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState("right");
 
@@ -74,7 +74,8 @@ const CustomClipLayout = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-[#2d2d2d] overflow-hidden">
+    <div className="w-full h-[70vh] bg-[#2d2d2d] overflow-hidden">
+
       {/* For sm, md, lg – Image Top + Content Below */}
       <div className="xl:hidden flex flex-col w-full h-full">
         {/* Image Top */}
@@ -82,7 +83,7 @@ const CustomClipLayout = () => {
           <img
             src={slide.image}
             alt="Slide"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
         </div>
 
@@ -173,7 +174,8 @@ const CustomClipLayout = () => {
            
 
 
-            <div className="flex justify-center gap-4 mt-6">
+            <div className="flex justify-center align-center gap-4 mt-6">
+
               <button
                 onClick={prev}
                 className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold hover:scale-105 hover:cursor-pointer"
@@ -225,4 +227,5 @@ const CustomClipLayout = () => {
   );
 };
 
-export default CustomClipLayout;
+export default Scholarships;
+
