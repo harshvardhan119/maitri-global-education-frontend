@@ -2,16 +2,16 @@ import React from "react";
 
 const testimonials = [
   {
-    text: "Current is just flat out awesome, I highly recommend Current as a primary or a second banking account. So many great benefits!",
-    source: "App Store"
+    text: "Maitri Global Education made my dream of studying abroad a reality! The guidance and support I received throughout the application process were outstanding. From selecting the right university to visa assistance, they were with me every step of the way.",
+    source: "Website"
   },
   {
-    text: "I absolutely love this card, it's super easy to sign up and use. Love that it gives me my balance every time I use it!",
-    source: "App Store"
+    text: "The team at Maitri is truly dedicated and knowledgeable. They not only helped me find the perfect course but also prepared me for interviews and ensured my application stood out. I couldn’t have asked for a better experience!",
+    source: "Facebook"
   },
   {
-    text: "This is the best fintech 'bank' account, better than Chime and Citi combined, and as good as CapOne 360!",
-    source: "App Store"
+    text: "Thanks to Maitri Global Education, I am now pursuing my postgraduate studies in Europe. Their personalized counseling and deep understanding of international education made the entire journey smooth and stress-free.",
+    source: "Tiktok"
   }
 ];
 
@@ -59,10 +59,10 @@ const Testomonials = () => (
     </div>
     {/* Navigation Arrows */}
     <div className="flex flex-row gap-4 mt-8">
-      <button className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
+      <button className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full hover:bg-gray-100 transition-colors cursor-pointer hover:scale-105">
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
       </button>
-      <button className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full hover:bg-gray-100 transition-colors">
+      <button className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full hover:bg-gray-100 transition-colors cursor-pointer hover:scale-105">
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
       </button>
     </div>

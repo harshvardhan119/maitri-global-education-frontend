@@ -412,19 +412,19 @@ const Scholarships = () => {
             <p style={{ fontFamily: "Roboto" }} className="text-xl font-thin my-6">
               {slide.text}
             </p>
-            <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105">
+            <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
               Apply Now
             </button>
             <div className="flex justify-center gap-4 mt-6">
               <button
                 onClick={prev}
-                className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold"
+                className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold cursor-pointer"
               >
                 &#8592;
               </button>
               <button
                 onClick={next}
-                className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold"
+                className="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold cursor-pointer"
               >
                 &#8594;
               </button>
