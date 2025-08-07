@@ -384,13 +384,13 @@ const Scholarships = () => {
         </div>
 
         {/* Side Content */}
-        <div className="w-1/2">
+        <div className="w-1/2" >
        <div
-  className={`absolute inset-0 bg-[#2d2d2d] z-0 flex items-center 
-    ${isEven 
-      ? 'justify-start pl-1 xl:pl-20 2xl:pl-32' 
-      : 'justify-end pr-1 xl:pr-20 2xl:pr-32'}
-  `}
+  className={`absolute inset-0 bg-[#2D2D2D] z-0 flex items-center
+  ${isEven
+    ? 'justify-start pl-[2%] md:pl-[20%] xl:pl-[9%] [@media(min-width:2065px)]:pl-[11%]'
+    : 'justify-end pr-[2%] md:pr-[20%] xl:pr-[9%] [@media(min-width:2065px)]:pr-[11%]'}
+`}
 >
           <div className="max-w-md text-white text-center z-20">
             <div className="flex justify-center mb-4">
