@@ -84,7 +84,7 @@ const Locations = () => {
         <div className="hidden md:grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mt-6">
           {campuses.map((campus, idx) => (
             <div key={idx} className="flex flex-col items-center">
-              <div className="bg-white p-2 shadow-lg w-full aspect-square flex items-center justify-center overflow-hidden transition-transform duration-300">
+              <div className="bg-white p-2 shadow-lg w-full aspect-[4/3] flex items-center justify-center overflow-hidden transition-transform duration-300">
                 <img
                   src={campus.imageUrl}
                   alt={campus.name}
