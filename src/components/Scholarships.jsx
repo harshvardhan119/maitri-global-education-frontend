@@ -384,11 +384,13 @@ const Scholarships = () => {
         </div>
 
         {/* Side Content */}
-        <div
-          className={`absolute inset-0 bg-[#2d2d2d] z-0 flex items-center ${
-            isEven ? "justify-start pl-20" : "justify-end pr-20"
-          }`}
-        >
+       <div
+  className={`absolute inset-0 bg-[#2d2d2d] z-0 flex items-center 
+    ${isEven 
+      ? 'justify-start pl-4 lg:pl-15 xl:pl-20 2xl:pl-32' 
+      : 'justify-end pr-4 lg:pr-15 xl:pr-20 2xl:pr-32'}
+  `}
+>
           <div className="max-w-md text-white text-center z-20">
             <div className="flex justify-center mb-4">
               <img

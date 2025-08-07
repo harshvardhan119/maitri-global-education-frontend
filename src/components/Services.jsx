@@ -63,34 +63,36 @@ const steps = [
 
 const Services = () => {
   return (
-    <div className="flex justify-center items-center w-full py-6 px-4">
-      <div className="w-full max-w-7xl bg-white rounded-2xl shadow-2xl px-6 sm:px-10 py-10 flex flex-col md:flex-row gap-10 items-center md:h-auto">
-        {/* Left side - Stats */}
-        <div className="flex flex-row md:flex-col justify-center items-center gap-6 md:pr-10 md:border-r border-gray-200 h-full">
-          {services.map((service, idx) => (
-            <div key={idx} className="flex flex-col items-center">
-              {service.icon}
-              <div className="text-3xl font-bold text-gray-900">{service.number}</div>
-              <div className="text-gray-500 text-base text-center">{service.label}</div>
-            </div>
-          ))}
+   <div className="flex justify-center items-center w-full py-6 px-4">
+  <div className="w-full max-w-7xl bg-white rounded-2xl shadow-2xl px-6 sm:px-10 py-10 flex flex-col lg:flex-row gap-10">
+    
+    {/* Left side - Stats */}
+    <div className="flex flex-row lg:flex-col justify-center items-center gap-6 lg:pr-10 lg:border-r border-gray-200 w-full lg:w-[250px]">
+      {services.map((service, idx) => (
+        <div key={idx} className="flex flex-col items-center">
+          {service.icon}
+          <div className="text-3xl font-bold text-gray-900">{service.number}</div>
+          <div className="text-gray-500 text-base text-center">{service.label}</div>
         </div>
-
-        {/* Right side - Steps */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
-          {steps.map((step, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center border border-gray-100 justify-start h-[280px]"
-            >
-              {step.icon}
-              <div className="font-semibold text-gray-900 mb-2 text-base sm:text-md">{step.title}</div>
-              <div className="text-gray-500 text-sm sm:text-base">{step.desc}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
+
+    {/* Right side - Steps */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 w-full">
+      {steps.map((step, idx) => (
+        <div
+          key={idx}
+          className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center border border-gray-100 justify-start h-[280px]"
+        >
+          {step.icon}
+          <div className="font-semibold text-gray-900 mb-2 text-base sm:text-md">{step.title}</div>
+          <div className="text-gray-500 text-sm sm:text-base">{step.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
   );
 };
 
