@@ -85,7 +85,7 @@ const Scholarships = () => {
             <div
               className="relative h-full w-[70%] overflow-hidden"
               style={{
-                clipPath: "polygon(0 0, 100% 0, 85% 100%, 0% 100%)",
+                clipPath: "polygon(0 0, 100% 0, 75% 100%, 0% 100%)",
               }}
             >
               <img
@@ -94,7 +94,7 @@ const Scholarships = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center p-6">
+            <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center pr-14">
               <div className="max-w-md text-white space-y-4">
                 <div className="flex justify-center">
                   <img
@@ -138,7 +138,7 @@ const Scholarships = () => {
           </>
         ) : (
           <>
-            <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center p-6">
+            <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center pl-14">
               <div className="max-w-md text-white space-y-4">
                 <div className="flex justify-center">
                   <img
@@ -182,7 +182,7 @@ const Scholarships = () => {
             <div
               className="relative h-full w-[70%] overflow-hidden"
               style={{
-                clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0 100%)",
+                clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0 100%)",
               }}
             >
               <img
