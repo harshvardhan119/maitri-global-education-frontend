@@ -61,7 +61,13 @@ if (!blogs.length) {
 
   return (
     <div className="w-full px-4 py-4">
-      
+
+      <h1 
+          style={{ fontFamily: "Epika", fontWeight: "bold" }}
+          className="bg-gradient-to-r from-[#b8860b] via-[#d4af37] to-[#f5deb3] bg-clip-text text-transparent text-4xl md:text-5xl font-bold mb-2 text-center leading-tight tracking-wide uppercase drop-shadow-lg"
+        >
+         Blogs
+        </h1>
       {/* Responsive Layout */}
       <div className="flex flex-col sm:flex-row w-full gap-6 justify-center items-stretch">
 

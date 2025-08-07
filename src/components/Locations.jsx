@@ -1,4 +1,6 @@
+
 import React, { useEffect, useState } from "react";
+
 
 const Locations = () => {
   const [current, setCurrent] = useState(0);
@@ -45,7 +47,7 @@ const Locations = () => {
   }
 
   return (
-    <div className="bg-[#2d2d2d] min-h-screen w-full px-4 py-10">
+    <div className="bg-[#2d2d2d] w-full px-4 py-10">
       <div className="max-w-7xl mx-auto">
         <h1
           style={{ fontFamily: "Epika", fontWeight: "bold" }}
@@ -60,11 +62,13 @@ const Locations = () => {
         {/* Mobile View */}
         <div className="block md:hidden mt-10">
           <div className="flex flex-col items-center">
+
             <span className="text-md font-bold text-white mb-4 tracking-wide">{campuses[current].name}</span>
             <div className="bg-white p-2 shadow-lg w-full aspect-square flex items-center justify-center overflow-hidden">
               <img
                 src={campuses[current].imageUrl}
                 alt={campuses[current].name}
+
                 className="object-contain w-full h-full"
               />
             </div>
@@ -76,6 +80,7 @@ const Locations = () => {
         </div>
 
         {/* Desktop View */}
+
         <div className="hidden md:grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mt-6">
           {campuses.map((campus, idx) => (
             <div key={idx} className="flex flex-col items-center">
@@ -87,6 +92,7 @@ const Locations = () => {
                 />
               </div>
               <span className="text-md font-bold text-white mt-3 tracking-wide">{campus.name}</span>
+
             </div>
           ))}
         </div>
