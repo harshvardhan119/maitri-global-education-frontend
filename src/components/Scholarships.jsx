@@ -94,7 +94,7 @@ const Scholarships = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center pr-14">
+            <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center pr-[5%]">
               <div className="max-w-md text-white space-y-4">
                 <div className="flex justify-center">
                   <img
@@ -138,7 +138,7 @@ const Scholarships = () => {
           </>
         ) : (
           <>
-            <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center pl-14">
+            <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center pl-[5%]">
               <div className="max-w-md text-white space-y-4">
                 <div className="flex justify-center">
                   <img
