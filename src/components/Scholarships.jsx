@@ -1,61 +1,52 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 
-const slides = [
-  {
-    image: "/s1.png",
-    heading: "€10,000",
-    subheading: "SCHOLARSHIP",
-    text: "ALL POSTGRADUATE PROGRAMS",
-    tag: "istitutomarangoni",
-    tagline: "enhancing talent since 1935",
-  },
-  {
-    image: "/s2.png",
-    heading: "€12,000",
-    subheading: "SCHOLARSHIP",
-    text: "ALL POSTGRADUATE PROGRAMS",
-    tag: "globalacademy",
-    tagline: "inspiring leaders of tomorrow",
-  },
-  {
-    image: "/s3.png",
-    heading: "€15,000",
-    subheading: "SCHOLARSHIP",
-    text: "ALL POSTGRADUATE PROGRAMS",
-    tag: "intellectus",
-    tagline: "bridging cultures through education",
-  },
-  {
-    image: "/s4.png",
-    heading: "€18,000",
-    subheading: "FUNDING",
-    text: "FOR OVERSEAS STUDENTS",
-    tag: "novusuni",
-    tagline: "learning without limits",
-  },
-  {
-    image: "/s5.png",
-    heading: "€18,000",
-    subheading: "FUNDING",
-    text: "FOR OVERSEAS STUDENTS",
-    tag: "novusuni",
-    tagline: "learning without limits",
-  },
-  {
-    image: "/s6.png",
-    heading: "€18,000",
-    subheading: "FUNDING",
-    text: "FOR OVERSEAS STUDENTS",
-    tag: "novusuni",
-    tagline: "learning without limits",
-  },
-];
+
 
 const Scholarships = () => {
+
+
+
+
+
+
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState("right");
-  const slide = slides[current];
+   const[slides,setslides] = useState([]);
+  
+ 
+useEffect(() => {
+    const query = `*[_type == "scholarship"]{
+  name,
+  amount,
+  description,
+  "image":image.asset->url,
+    
+}`;
+
+    const encodedQuery = encodeURIComponent(query);
+
+    fetch(`https://poxqiqf3.api.sanity.io/v2021-10-21/data/query/production?query=${encodedQuery}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch from Sanity");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setslides(data.result);
+      })
+      .catch((err) => {
+        console.error("Error fetching blogs:", err);
+      });
+  }, []);
+
+const slide = slides[current];
+if (!slide) {
+  return <div className="text-white p-8">Loading...</div>;
+}
   const isEven = current % 2 === 0;
+
+
 
   const prev = () => {
     setDirection("left");
@@ -70,6 +61,10 @@ const Scholarships = () => {
       prevIndex === slides.length - 1 ? 0 : prevIndex + 1
     );
   };
+
+
+
+
 
   return (
     <div className="w-full bg-[#2d2d2d] overflow-hidden">
@@ -91,7 +86,7 @@ const Scholarships = () => {
               <img
                 src={slide.image}
                 alt="Slide"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-[center_20%]"
               />
             </div>
             <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center pr-[5%]">
@@ -107,15 +102,15 @@ const Scholarships = () => {
                   style={{ fontFamily: "Epika" }}
                   className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-5xl font-bold tracking-wide uppercase"
                 >
-                  {slide.heading}
+                  {slide.amount}
                 </h1>
                 <h2
                   style={{ fontFamily: "Epika" }}
                   className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl font-bold tracking-wide uppercase"
                 >
-                  {slide.subheading}
+                  {slide.name}
                 </h2>
-                <p className="text-xl font-light">{slide.text}</p>
+                <p className="text-xl font-light">{slide.description}</p>
                 <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
                   Apply Now
                 </button>
@@ -157,9 +152,9 @@ const Scholarships = () => {
                   style={{ fontFamily: "Epika" }}
                   className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl font-bold tracking-wide uppercase"
                 >
-                  {slide.subheading}
+                  {slide.name}
                 </h2>
-                <p className="text-xl font-light">{slide.text}</p>
+                <p className="text-xl font-light">{slide.description}</p>
                 <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
                   Apply Now
                 </button>
@@ -210,15 +205,15 @@ const Scholarships = () => {
             style={{ fontFamily: "Epika" }}
             className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl font-bold tracking-wide uppercase"
           >
-            {slide.heading}
+            {slide.amount}
           </h1>
           <h2
             style={{ fontFamily: "Epika" }}
             className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-3xl font-bold tracking-wide uppercase"
           >
-            {slide.subheading}
+            {slide.name}
           </h2>
-          <p className="text-lg font-light">{slide.text}</p>
+          <p className="text-lg font-light">{slide.description}</p>
           <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
             Apply Now
           </button>
