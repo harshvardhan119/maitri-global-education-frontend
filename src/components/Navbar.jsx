@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 // import "../font.css";
 
 const navLinks = [
+  { title: "Home", href: "/" },
   { title: "EXPLORE", href: "#" },
-  { title: "SCHOLARSHIPS", href: "#" },
+  { title: "SCHOLARSHIPS", href: "/scholarship" },
   { title: "EVENTS & WEBINARS", href: "#" },
   { title: "BLOGS", href: "#" },
   { title: "SERVICES", href: "#" },
@@ -28,8 +30,9 @@ export default function Navbar() {
         <span className="block w-7 h-0.5 bg-white rounded"></span>
       </button>
       {/* Row 1: Logo */}
-      <div className="flex flex-col items-center py-1">
+      <div  href="/" className="flex flex-col items-center py-1">
         <img
+         
           src="/maitri.png"
           alt="maitri logo"
           className="h-16 w-auto mx-auto"
@@ -41,28 +44,48 @@ export default function Navbar() {
         {/* Nav links (desktop) */}
         <div className="hidden md:flex justify-center gap-14 py-1 text-sm md:text-base">
           {navLinks.map((item, id) => (
-            <a
-           
-              key={id}
-              href={item.href}
-              className="hover:text-white transition-colors duration-200 text-sm"
-            >
-              {item.title}
-            </a>
+            item.title === "SCHOLARSHIPS" ? (
+              <Link
+                key={id}
+                to={item.href}
+                className="hover:text-white transition-colors duration-200 text-sm"
+              >
+                {item.title}
+              </Link>
+            ) : (
+              <a
+                key={id}
+                href={item.href}
+                className="hover:text-white transition-colors duration-200 text-sm"
+              >
+                {item.title}
+              </a>
+            )
           ))}
         </div>
         {/* Nav links (mobile, toggled) */}
         {menuOpen && (
           <div className="md:hidden fixed top-0 left-0 right-0 bg-black flex flex-col items-center h-full justify-center gap-4 py-4 shadow-lg animate-fade-in z-40">
             {navLinks.map((item, id) => (
-              <a
-                key={id}
-                href={item.href}
-                className="hover:text-yellow-300 text-base block w-full text-center py-1 font-normal"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.title}
-              </a>
+              item.title === "SCHOLARSHIPS" ? (
+                <Link
+                  key={id}
+                  to={item.href}
+                  className="hover:text-yellow-300 text-base block w-full text-center py-1 font-normal"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.title}
+                </Link>
+              ) : (
+                <a
+                  key={id}
+                  href={item.href}
+                  className="hover:text-yellow-300 text-base block w-full text-center py-1 font-normal"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.title}
+                </a>
+              )
             ))}
           </div>
         )}

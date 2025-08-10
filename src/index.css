@@ -52,3 +52,7 @@ html {
 .reveal-top-bottom {
   animation: revealTopToBottom 0.6s ease-out forwards;
 }
+
+.clip-slant {
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
