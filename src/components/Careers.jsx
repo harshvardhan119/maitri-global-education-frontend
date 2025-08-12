@@ -30,6 +30,13 @@ const careersData = [
     image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW50ZXJpb3IlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D",
     tags: ["Design", "Build"],
   },
+  {
+    id: 4,
+    title: "Fashion Photography and Videography",
+    subtitle: "GOMA",
+    image: "https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fEZhc2hpb24lMjBwaG90b2dyYXBoeXxlbnwwfHwwfHx8MA%3D%3D",
+    tags: ["Design", "Build"],
+  },
 ];
 
 const Careers = () => {
@@ -105,7 +112,7 @@ const Careers = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex gap-3 justify-end">
+          <div className="flex gap-3 justify-center">
             <button
               onClick={() => scroll("left")}
               className="p-3 rounded-full bg-neutral-800 hover:bg-neutral-700 transition"

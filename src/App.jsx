@@ -16,8 +16,6 @@ import Scholarships from './components/Scholarships';
 import Event from './components/Event';
 import Careers from './components/Careers';
 import University from './components/University';
-import ScholarshipForm from './pages/ScholarshipForm';
-import Scholarshipind from './pages/Scholarshipind';
 
 
 function App() {
@@ -38,9 +36,7 @@ function App() {
               <Badge/>
               <Scholarships/>
               <Testomonials/> 
-              {/* <University/> */}
-              {/* <ScholarshipForm/> */}
-              {/* <Scholarshipind/> */}
+              <University/>
               <Careers/> 
               <Event/>    
               <Blogs/>
