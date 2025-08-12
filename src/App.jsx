@@ -13,6 +13,7 @@ import Blogs from './components/Blogs';
 import Testomonials from './components/Testomonials';
 import Scholarships from './components/Scholarships';
 import Event from './components/Event';
+import Explore from './pages/Explore';
 
 function App() {
   return (
@@ -21,9 +22,10 @@ function App() {
       <div style={{ minHeight: '80vh' }}>
         <Routes>
           <Route path="/scholarship" element={<Scholarship />} />
+          <Route path="/explore" element={<Explore/>}/>
           <Route path="/" element={
             <>
-              {/* Home page content remains unchanged */}
+             
               <Hero/>
               <About/>
               <Locations/>
