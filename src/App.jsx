@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'; 
 import Footer from './components/Footer';
 import Scholarship from './pages/Scholarship';
+import Abt from './pages/About';
 import Hero from './components/Hero'
 import About from './components/About'
 import Services from './components/Services';
@@ -22,6 +23,7 @@ function App() {
       <div style={{ minHeight: '80vh' }}>
         <Routes>
           <Route path="/scholarship" element={<Scholarship />} />
+          <Route path="/about" element={<Abt/>} />
           <Route path="/explore" element={<Explore/>}/>
           <Route path="/" element={
             <>
