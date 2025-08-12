@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 // import "../font.css";
 
 const navLinks = [
-  { title: "Home", href: "/" },
-  { title: "EXPLORE", href: "#" },
+  { title: "HOME", href: "/" },
+  { title: "EXPLORE", href: "/explore" },
   { title: "SCHOLARSHIPS", href: "/scholarship" },
   { title: "EVENTS & WEBINARS", href: "#" },
   { title: "BLOGS", href: "#" },

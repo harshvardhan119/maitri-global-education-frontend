@@ -14,8 +14,12 @@ import Blogs from './components/Blogs';
 import Testomonials from './components/Testomonials';
 import Scholarships from './components/Scholarships';
 import Event from './components/Event';
+
+import Explore from './pages/Explore';
+
 import Careers from './components/Careers';
 import University from './components/University';
+
 
 
 function App() {
@@ -26,9 +30,10 @@ function App() {
         <Routes>
           <Route path="/scholarship" element={<Scholarship />} />
           <Route path="/about" element={<Abt/>} />
+          <Route path="/explore" element={<Explore/>}/>
           <Route path="/" element={
             <>
-              {/* Home page content remains unchanged */}
+             
               <Hero/>
               <About/>
               <Locations/>
