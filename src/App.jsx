@@ -14,7 +14,15 @@ import Blogs from './components/Blogs';
 import Testomonials from './components/Testomonials';
 import Scholarships from './components/Scholarships';
 import Event from './components/Event';
+
 import Explore from './pages/Explore';
+
+import Careers from './components/Careers';
+import University from './components/University';
+import ScholarshipForm from './pages/ScholarshipForm';
+import Scholarshipind from './pages/Scholarshipind';
+
+
 
 function App() {
   return (
@@ -34,7 +42,11 @@ function App() {
               <Services/> 
               <Badge/>
               <Scholarships/>
-              <Testomonials/>   
+              <Testomonials/> 
+              {/* <University/> */}
+              {/* <ScholarshipForm/> */}
+              {/* <Scholarshipind/> */}
+              <Careers/> 
               <Event/>    
               <Blogs/>
             </>
