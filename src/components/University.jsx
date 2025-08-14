@@ -1,56 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const University = () => {
-  const cardData = [
-    {
-      id: 1,
-      reportYear: "2023",
-      title: "NABA",
-      subtitle: "SYNERGY",
-      description:
-        "Growing crops under solar panels makes food — and creates healthier solar panels. Agrivoltaics, putting agriculture under solar installations, is a good way to maximize land use. It also makes the solar panels last longer.",
-      buttonText: "Go to University Page",
-    },
-    {
-      id: 2,
-      reportYear: "2022",
-      title: "Istituto Marangoni",
-      subtitle: "FARMING",
-      description:
-        "Can crops grow better under solar panels? Here’s all you need to know about 'agritvoltaic farming'. Agrivoltaic farming is the practice of growing crops underneath solar panels. Scientific studies show some crops thrive when grown in this way.",
-      buttonText: "Go to University Page",
-    },
-    {
-      id: 3,
-      reportYear: "2023",
-      title: "Harvard University",
-      subtitle: "SUCCESS",
-      description:
-        "Agrivoltaics alone could surpass EU photovoltaic 2030 goals. Covering just 1% of the utilised agricultural area (UAA) with agrivoltaic systems could result in 944 GW direct current of installed capacity.",
-      buttonText: "Go to University Page",
-    },
-    {
-      id: 4,
-      reportYear: "2021",
-      title: "Oxford University",
-      subtitle: "INNOVATION",
-      description:
-        "Exploring new ways of combining sustainable energy and agriculture through agrivoltaic systems to create a greener future.",
-      buttonText: "Go to University Page",
-    },
-    {
-      id: 5,
-      reportYear: "2020",
-      title: "Cambridge University",
-      subtitle: "VISION",
-      description:
-        "Research into agrivoltaics shows the potential to transform agriculture and energy sectors simultaneously.",
-      buttonText: "Go to University Page",
-    },
-  ];
-
+  const [cardData, setCardData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Fetch from Sanity backend
+  useEffect(() => {
+    const query = `*[_type == "university"]{
+      Universityname,
+      "logo": logo.asset->url,
+      campus->{ name },
+      metaDescription,
+      reportYear,
+      metaTitle,
+      
+    }`;
+
+    const encodedQuery = encodeURIComponent(query);
+
+    fetch(
+      `https://poxqiqf3.api.sanity.io/v2021-10-21/data/query/production?query=${encodedQuery}`
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch universities from Sanity");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setCardData(data.result || []);
+      })
+      .catch((err) => {
+        console.error("Error fetching universities:", err);
+      });
+  }, []);
 
   const prevSlide = () => {
     setCurrentIndex((prev) =>
@@ -64,12 +48,19 @@ const University = () => {
     );
   };
 
+  if (!cardData.length) {
+    return (
+      <div className="text-white flex justify-center items-center h-[70vh]">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div
       className="relative h-[70vh] w-full bg-cover bg-center flex items-center justify-center px-4"
       style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1537202108838-e7072bad1927?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTR8fHVuaXZlcnNpdHl8ZW58MHx8MHx8fDA%3D')",
+        backgroundImage: "url('/imageuniversity.png')",
       }}
     >
       {/* Desktop View */}
@@ -91,25 +82,50 @@ const University = () => {
                 ? cardData.slice(0, (currentIndex + 3) % cardData.length)
                 : []
             )
-            .map((card) => (
+            .map((card, idx) => (
               <div
-                key={card.id}
+                key={idx}
                 className="p-6 rounded-lg shadow-lg text-white border border-white/20 bg-white/10 backdrop-blur-md flex flex-col justify-between min-h-[350px]"
               >
                 <div>
+                  {/* Report Year */}
                   <p className="text-sm opacity-80">
-                    Report | {card.reportYear}
+                    Report | {card.reportYear || "N/A"}
                   </p>
-                  <h2 className="text-2xl font-bold mt-2">{card.title}</h2>
-                  <h3 className="text-lg font-medium opacity-90">
-                    {card.subtitle}
+
+                  {/* Title + Logo */}
+                  <div className="flex justify-between items-start mt-2">
+                    <div>
+                      <h2 className="text-2xl font-bold">
+                        {card.Universityname}
+                      </h2>
+                      <p className="text-sm opacity-70">
+                        {card.campus?.name}
+                      </p>
+                    </div>
+                    {card.logo && (
+                      <img
+                        src={card.logo}
+                        alt={`${card.Universityname} logo`}
+                        className="w-16 h-16 object-contain filter grayscale-20 hover:grayscale-0 transition duration-300"
+                      />
+                    )}
+                  </div>
+
+                  {/* Subtitle */}
+                  <h3 className="text-lg font-medium opacity-90 mt-2">
+                    {card.metaTitle}
                   </h3>
+
+                  {/* Description */}
                   <p className="text-sm mt-4 opacity-90 line-clamp-6">
-                    {card.description}
+                    {card.metaDescription}
                   </p>
                 </div>
-                <button className="mt-4 px-4 py-2 bg-lime-400 text-black rounded-full text-sm font-semibold hover:bg-lime-300 transition">
-                  {card.buttonText} →
+
+                {/* Button */}
+                <button className="mt-4 px-4 py-2 bg-gray-300 text-black rounded-full text-sm font-semibold hover:bg-gray-300 transition">
+                  Go to University Page →
                 </button>
               </div>
             ))}
@@ -129,20 +145,42 @@ const University = () => {
         <div className="p-6 rounded-lg shadow-lg text-white border border-white/20 bg-white/10 backdrop-blur-md flex flex-col justify-between min-h-[350px]">
           <div>
             <p className="text-sm opacity-80">
-              Report | {cardData[currentIndex].reportYear}
+              Report | {cardData[currentIndex].reportYear || "N/A"}
             </p>
-            <h2 className="text-2xl font-bold mt-2">
-              {cardData[currentIndex].title}
-            </h2>
-            <h3 className="text-lg font-medium opacity-90">
+
+            {/* Title + Logo */}
+            <div className="flex justify-between items-start mt-2">
+              <div>
+                <h2 className="text-2xl font-bold">
+                  {cardData[currentIndex].Universityname}
+                </h2>
+                <p className="text-sm opacity-70">
+                  {cardData[currentIndex].campus?.name}
+                </p>
+              </div>
+              {cardData[currentIndex].logo && (
+                <img
+                  src={cardData[currentIndex].logo}
+                  alt={`${cardData[currentIndex].Universityname} logo`}
+                  className="w-16 h-16 object-contain filter grayscale hover:grayscale-0 transition duration-300"
+                />
+              )}
+            </div>
+
+            {/* Subtitle */}
+            <h3 className="text-lg font-medium opacity-90 mt-2">
               {cardData[currentIndex].subtitle}
             </h3>
+
+            {/* Description */}
             <p className="text-sm mt-4 opacity-90 line-clamp-6">
-              {cardData[currentIndex].description}
+              {cardData[currentIndex].metaDescription}
             </p>
           </div>
+
+          {/* Button */}
           <button className="mt-4 px-4 py-2 bg-lime-400 text-black rounded-full text-sm font-semibold hover:bg-lime-300 transition">
-            {cardData[currentIndex].buttonText} →
+            Go to University Page →
           </button>
         </div>
 

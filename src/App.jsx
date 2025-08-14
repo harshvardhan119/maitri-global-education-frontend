@@ -19,6 +19,7 @@ import Explore from './pages/Explore';
 
 import Careers from './components/Careers';
 import University from './components/University';
+import Course from './pages/Course';
 
 
 
@@ -31,6 +32,8 @@ function App() {
           <Route path="/scholarship" element={<Scholarship />} />
           <Route path="/about" element={<Abt/>} />
           <Route path="/explore" element={<Explore/>}/>
+          {/* added for testing */}
+          <Route path="/courses" element={<Course/>}/>
           <Route path="/" element={
             <>
              
