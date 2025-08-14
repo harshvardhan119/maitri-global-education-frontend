@@ -20,6 +20,7 @@ import Explore from './pages/Explore';
 import Careers from './components/Careers';
 import University from './components/University';
 import Course from './pages/Course';
+import Blogsind from './pages/Blogs';
 
 
 
@@ -34,6 +35,9 @@ function App() {
           <Route path="/explore" element={<Explore/>}/>
           {/* added for testing */}
           <Route path="/courses" element={<Course/>}/>
+          <Route path="/blogs" element={<Blogsind/>}/>
+          <Route path="/events" element={<Event/>}/>
+          
           <Route path="/" element={
             <>
              
