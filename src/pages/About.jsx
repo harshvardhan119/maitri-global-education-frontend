@@ -1,6 +1,22 @@
 import React from "react";
 import { FaLinkedin } from "react-icons/fa";
-
+import { 
+  FaRegCheckCircle, 
+  FaUserTie, 
+  FaPassport, 
+  FaClipboardList, 
+  FaHandshake, 
+  FaPlaneArrival, 
+  FaHome, 
+  FaIdCard, 
+  FaUniversity, 
+  FaBusAlt, 
+  FaHospital, 
+  FaBriefcase, 
+  FaUserFriends, 
+  FaHeart ,
+  FaCircle
+} from "react-icons/fa";
 const teamMembers = [
   {
     name: "Pooja Krishnan",
@@ -75,11 +91,21 @@ const teamMembers = [
 ];
 
 const partners = [
-  "/partner1.png",
-  "/partner2.png",
-  "/partner3.png",
-  "/partner4.png",
-  "/partner5.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/60db27a239793.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/60dc2bd0e4981.jpg",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/60dc469747fec.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/60dd770b53b2e.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/60e2ff25603e6.jpg",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/682b2632bc001.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/66bdbd18d149a.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/66bdbfef26c3d.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/66bdca1acefe2.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/66bdcba491f09.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/66bdcf0c2cc49.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/60e6c508702af.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/60e6fe3038366.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/60e82032e8633.png",
+  "https://maitriglobaleducation.com/crm/public/uploads/Institute_img/60e8264ccced6.png"
 ];
 
 const About = () => {
@@ -87,57 +113,58 @@ const About = () => {
     <div className="bg-white text-gray-800">
       {/* Organization Heading */}
       <section className="text-center py-12 px-4">
-        <h1 className="text-4xl font-bold mb-2">Maitri Global Education</h1>
-        <div className="mx-auto w-24 border-b-4 border-blue-600 transition-all duration-500 hover:w-48"></div>
+        <h1  style={{ fontFamily: "Epika" }} className="text-4xl font-bold mb-2">Maitri Global Education</h1>
+        <div className="mx-auto w-24 border-b-4 border-orange-600 transition-all duration-500 hover:w-48"></div>
       <p className="py-[2%] px-[10%]">Maitri Global Education is an organization born in 2009 under the umbrella of Associazione Maitri a registered association to promote the exchange between cultures specifically focusing on international education. Developed itself through the years rendering services to large groups of students, schools, and educational institutions such as counselling for higher education, institutional collaborations, educational tours, etc. In 2017 Maitri Global Education which was under the Associazione Maitri got separated and registered itself in the chamber of commerce of Florence with its REA number FI651447 and registered name "Maitri Global Sas" . The company has extended its services during the pandemic with the preparation of students before admission online with coaching and language classes.</p>
       </section>
 
     {/* Why Maitri Global */}
 <section className="max-w-6xl mx-auto px-4 mb-12">
-  <h2 className="text-2xl font-semibold mb-6">Why Maitri Global?</h2>
-  <ul className="space-y-3 text-gray-700">
-    <li className="flex items-start">
-      <span className="text-orange-500 mr-2">📌</span>
-      MGE guides the student in discerning and decision making, in the selection of the course and institution
-    </li>
-    <li className="flex items-start">
-      <span className="text-orange-500 mr-2">📌</span>
-      Admission process is taken care of by a dedicated staff.
-    </li>
-    <li className="flex items-start">
-      <span className="text-orange-500 mr-2">📌</span>
-      The student is followed up given the right guidance in visa process and other paper works. MGE intervenes in the case of a VISA problem or other paper work difficulties.
-    </li>
-    <li className="flex items-start">
-      <span className="text-orange-500 mr-2">📌</span>
-      MGE provides the following ground services:
-    </li>
-  </ul>
+      <h2  style={{ fontFamily: "Epika" }} className="text-2xl font-semibold mb-6">Why Maitri Global?</h2>
+      <ul className="space-y-3 text-gray-700">
+        <li className="flex items-start">
+          <FaRegCheckCircle className="text-orange-500 mr-2 mt-1" />
+          MGE guides the student in discerning and decision making, in the selection of the course and institution
+        </li>
+        <li className="flex items-start">
+          <FaUserTie className="text-orange-500 mr-2 mt-1" />
+          Admission process is taken care of by a dedicated staff.
+        </li>
+        <li className="flex items-start">
+          <FaPassport className="text-orange-500 mr-2 mt-1" />
+          The student is followed up with the right guidance in visa process and other paperwork. 
+          MGE intervenes in the case of a VISA problem or other paperwork difficulties.
+        </li>
+        <li className="flex items-start">
+          <FaCircle className="text-orange-500 mr-2 mt-1 text-xs" />
+          MGE provides the following ground services:
+        </li>
+      </ul>
 
-  {/* Two-column services list */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 text-gray-700">
-    {[
-      "Complete presence throughout the time of study.",
-      "Guidance in time of need during the stay.",
-      "A constant link between parents, students and the institution.",
-      "Pick up at the airport.",
-      "Accommodation.",
-      "Residence permit.",
-      "Fiscal code.",
-      "Bank account.",
-      "Information for student pass.",
-      "Support for medical assistance.",
-      "Assistance in time of internships and placements.",
-      "A student advisor in need.",
-      "Above all, a home away from home."
-    ].map((service, index) => (
-      <div key={index} className="flex items-start">
-        <span className="text-orange-500 mr-2">🔄</span>
-        <span>{service}</span>
+      {/* Two-column services list */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 p-3 text-gray-700">
+        {[
+          { text: "Complete presence throughout the time of study.", icon: <FaHandshake /> },
+          { text: "Guidance in time of need during the stay.", icon: <FaUserFriends /> },
+          { text: "A constant link between parents, students and the institution.", icon: <FaUniversity /> },
+          { text: "Pick up at the airport.", icon: <FaPlaneArrival /> },
+          { text: "Accommodation.", icon: <FaHome /> },
+          { text: "Residence permit.", icon: <FaIdCard /> },
+          { text: "Fiscal code.", icon: <FaClipboardList /> },
+          { text: "Bank account.", icon: <FaUniversity /> },
+          { text: "Information for student pass.", icon: <FaBusAlt /> },
+          { text: "Support for medical assistance.", icon: <FaHospital /> },
+          { text: "Assistance in time of internships and placements.", icon: <FaBriefcase /> },
+          { text: "A student advisor in need.", icon: <FaUserTie /> },
+          { text: "Above all, a home away from home.", icon: <FaHeart /> }
+        ].map((service, index) => (
+          <div key={index} className="flex items-start">
+            <span className="text-orange-500 mr-2 mt-1">{service.icon}</span>
+            <span>{service.text}</span>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-</section>
+    </section>
 
 
       {/* Vision / Mission */}
@@ -148,7 +175,7 @@ const About = () => {
           className="w-full rounded-lg shadow-lg"
         />
         <div>
-          <h2 className="text-3xl font-semibold mb-4">Our Vision & Mission</h2>
+          <h2  style={{ fontFamily: "Epika" }} className="text-3xl font-semibold mb-4">Our Vision & Mission</h2>
           <p className="text-gray-600 mb-6">
            The Core purpose of Maitri Global Education, is to be a bridge between cultures, extending high quality education and services reachable to every aspiring student.
           </p>
@@ -161,9 +188,9 @@ const About = () => {
       </section>
 
       {/* Our Team (unchanged) */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="max-w-6xl mx-auto px-4 py-4">
+        <h1  style={{ fontFamily: "Epika" }} className="text-3xl font-bold text-center mb-8">Meet Our Team</h1>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {teamMembers.map((member, index) => (
             <div
               key={index}
@@ -179,7 +206,8 @@ const About = () => {
                 <span className="inline-block bg-gray-100 text-gray-700 text-sm px-3 py-1 rounded-full mt-2">
                   {member.role}
                 </span>
-                <p className="mt-4 text-gray-600 text-sm">{member.bio}</p>
+                {/* <p className="mt-4 text-gray-600 text-sm">{member.bio}</p> */}
+                <br />
                 <a
                   href={member.linkedin}
                   target="_blank"
@@ -194,8 +222,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Why Maitri */}
-      {/* <section className="max-w-6xl mx-auto px-4 py-12">
+      {/* Why Maitri
+      <section className="max-w-6xl mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold text-center mb-8">Why Choose Us</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
           <div className="p-6 bg-gray-50 rounded-lg shadow hover:shadow-md transition">
@@ -220,8 +248,8 @@ const About = () => {
       </section> */}
 
       {/* Partners */}
-      {/* <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-8">Our Partners</h2>
+       <section className="max-w-6xl mx-auto px-4 py-10">
+        <h2 style={{ fontFamily: "Epika" }} className="text-3xl font-bold text-center mb-8">Our Partners</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 items-center">
           {partners.map((logo, index) => (
             <div
@@ -236,7 +264,7 @@ const About = () => {
             </div>
           ))}
         </div>
-      </section> */}
+      </section> 
     </div>
   );
 };
