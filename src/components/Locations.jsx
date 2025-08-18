@@ -35,7 +35,7 @@ function Locations() {
 
   // Auto scroll
   useEffect(() => {
-    const speed = 1.8; // slightly faster
+    const speed = 1.8;
     const step = () => {
       if (!isPaused && trackRef.current) {
         positionRef.current -= speed;
@@ -84,8 +84,8 @@ function Locations() {
         >
           {[...locations, ...locations].map((loc, idx) => {
             const isExpanded = expandedIndex === idx;
-            const baseWidth = 100 / itemsPerPage;
-
+            const baseWidth = 120 / itemsPerPage;
+   
             return (
               <div
                 key={idx}
@@ -98,13 +98,14 @@ function Locations() {
                 style={{
                   flex: `0 0 ${
                     windowWidth < 640
-                      ? "100%" // full width on mobile
+                      ? "100%"
                       : isExpanded
-                      ? baseWidth * 1.5 + "%" // expanded width
+                      ? baseWidth * 1.5 + "%"
                       : baseWidth + "%"
                   }`,
-                  height: isExpanded ? "24rem" : "20rem", // height grows too
+                  height: "20rem", // Maintain a fixed height for all cards
                   margin: windowWidth < 640 ? "0 8px" : "0",
+                  aspectRatio: "3 / 2", // Make cards rectangular
                   transition: "flex-basis 0.5s ease, height 0.5s ease, border-color 0.3s ease"
                 }}
               >
@@ -112,7 +113,7 @@ function Locations() {
                   src={loc.img}
                   alt={loc.name}
                   className={`w-full h-full object-cover transition-transform duration-500 ${
-                    isExpanded ? "scale-105" : "group-hover:scale-105"
+                    isExpanded ? "scale-110" : "group-hover:scale-110"
                   }`}
                 />
                 <h1 className="absolute top-2 left-1/2 transform -translate-x-1/2 

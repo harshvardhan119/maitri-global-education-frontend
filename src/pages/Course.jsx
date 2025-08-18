@@ -2,17 +2,17 @@ export default function Course() {
   return (
     <div className="relative w-full h-auto">
       {/* Full width image */}
-      <div className="w-full h-[80vh] relative">
-        <img src="5.png" alt="" className="w-full h-full object-cover" />
+      <div className="w-full h-[90vh] relative">
+        <img src="course2.jpg" alt="" className="w-full h-full object-cover opacity-95" />
 
         {/* Text overlay */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
           <h2
-            style={{ fontFamily: "Montserrat" }}
-            className="bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b]
+            style={{ fontFamily: "Epika" }}
+            className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b]
               bg-clip-text text-transparent text-3xl md:text-6xl font-bold uppercase drop-shadow-lg max-w-[90vw] sm:max-w-3xl"
           >
-            The University name
+            University name
           </h2>
           <p className="text-white text-2xl mt-4 max-w-[90vw] sm:max-w-xl drop-shadow-md">
             Details about courses will go here and more information can be added as needed.
@@ -24,9 +24,9 @@ export default function Course() {
       <div className="flex justify-center items-center mt-6 mb-4 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
           {/* Left Details Card */}
-          <div className="flex items-stretch justify-center">
-            <div className="bg-gray-200 p-8 rounded-2xl w-full h-full flex flex-col justify-center">
-              <h1 className="text-3xl font-bold mb-4">Key Details</h1>
+          <div  className="flex items-stretch justify-center">
+            <div  className="bg-gray-200 p-8 rounded-xl w-full h-full flex flex-col justify-center">
+              <h1 style={{fontFamily : 'Epika'}} className="text-3xl font-bold mb-4">Key Details</h1>
               <p className="text-xl mb-1">
                 <span className="text-xl font-bold">Duration:</span> 12 months
               </p>
@@ -48,14 +48,14 @@ export default function Course() {
           {/* Right Enquiry Form */}
           <div className="flex items-stretch justify-center">
             <div className="p-8 border-gray-400 rounded-lg bg-white shadow-lg w-full h-full flex flex-col">
-              <h2 style={{ fontFamily: "Roboto" }} className="text-xl font-bold mb-1">
+              <h2 style={{ fontFamily: "Epika" }} className="text-xl font-bold mb-2">
                 Enquire Now
               </h2>
-              <form className="space-y-3 flex-grow flex flex-col">
+              <form className="space-y-3 flex-grow flex flex-col ">
                 <input
                   type="text"
                   placeholder="Name"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className="border border-yellow-700 rounded-md p-2 w-full"
                 />
                 <input
                   type="email"
@@ -85,8 +85,8 @@ export default function Course() {
       </div>
 
       {/* Course Overview */}
-      <div className="lg:mx-60 mb-0 p-4 pb-4">
-        <h1 className="text-4xl mb-2 font-bold text-center md:text-left">Course Overview</h1>
+      <div className="lg:mx-60 mb-0 pt-4 pb-4">
+        <h1 style={{fontFamily : 'Epika'}} className="text-4xl mb-2 font-bold text-center md:text-left">Course Overview</h1>
         <p className="text-xl pl-2 text-center md:text-left">
           This course provides an in-depth understanding of the subject matter, equipping
           students with the necessary skills and knowledge to excel in their chosen field.
@@ -99,9 +99,9 @@ export default function Course() {
       </div>
 
       {/* Admission & Deadline */}
-      <div className="p-4 lg:mx-60 mt-0 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="pt-4 pb-4 lg:mx-60 mt-0 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h1 className="text-3xl font-bold mb-2 text-center md:text-left">Admission requirements</h1>
+          <h1 style={{fontFamily : 'Epika'}} className="text-4xl font-bold mb-2 text-center md:text-left">Admission requirements</h1>
           <h1 className="text-2xl text-center md:text-left">Academic Requirments</h1>
          <p className="block text-center text-lg md:text-left">Requirments 1</p>
          <p className="block text-center text-lg md:text-left">Requirments 2</p>
@@ -118,7 +118,7 @@ export default function Course() {
       {/* Apply Now Button */}
       <div className="flex justify-center p-5">
         <button className="px-8 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b]
-           text-white font-semibold rounded hover:opacity-90 transition">
+           text-white font-semibold rounded hover:opacity-90 transition cursor-pointer">
           Apply Now
         </button>
       </div>
