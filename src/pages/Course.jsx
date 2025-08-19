@@ -2,7 +2,7 @@ export default function Course() {
   return (
     <div className="relative w-full h-auto">
       {/* Full width image */}
-      <div className="w-full h-[90vh] relative">
+      <div className="w-full h-[50vh] relative">
         <img src="course2.jpg" alt="" className="w-full h-full object-cover opacity-95" />
 
         {/* Text overlay */}

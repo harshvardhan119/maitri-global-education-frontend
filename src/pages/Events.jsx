@@ -2,7 +2,7 @@ export default function Eventsind() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="w-full h-[90vh] relative">
+      <div className="w-full h-[50vh] relative">
         <img src="event.jpg" alt="" className="w-full h-full object-cover" />
 
         {/* Text overlay at bottom center */}

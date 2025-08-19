@@ -39,6 +39,7 @@ function App() {
           <Route path="/events" element={<Eventsind/>}/>
           <Route path="/blogs" element={<Blogsind/>}/>
           <Route path="/events" element={<Event/>}/>
+          {/* <Route path="/services" element={<Serices/>}/> */}
           
           <Route path="/" element={
             <>
