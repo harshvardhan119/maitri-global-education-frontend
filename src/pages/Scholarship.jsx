@@ -40,7 +40,7 @@ const Scholarship = () => {
             {/* Deep sleep effect from top-left */}
             <style>{`
                 .image-tilt-left {
-                    transform: perspective(1000px) rotateX(2deg) rotateY(4deg);
+                    transform: perspective(1000px) rotateX(6deg) rotateY(8deg);
                     transform-origin: top left;
                     transition: transform 0.4s ease;
                 }
