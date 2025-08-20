@@ -3,12 +3,6 @@ import React, { useState ,useEffect} from "react";
 
 
 const Scholarships = () => {
-
-
-
-
-
-
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState("right");
    const[slides,setslides] = useState([]);
@@ -16,11 +10,18 @@ const Scholarships = () => {
  
 useEffect(() => {
     const query = `*[_type == "scholarship"]{
-  name,
+  title,
   amount,
-  description,
+  tagline,
   "image":image.asset->url,
-    
+  university->{ 
+    name,
+    logo {
+      asset -> {
+        url
+      }
+    }
+  }
 }`;
 
     const encodedQuery = encodeURIComponent(query);
@@ -93,24 +94,24 @@ if (!slide) {
               <div className="max-w-md text-white space-y-4">
                 <div className="flex justify-center">
                   <img
-                    src="https://landing.istitutomarangoni.com/images/logo_marangoni.svg"
+                    src={slide.university.logo.asset.url}
                     alt="Logo"
-                    className="w-48 h-auto"
+                    className="w-36 h-auto"
                   />
                 </div>
+                <h2
+                  style={{ fontFamily: "Epika" }}
+                  className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl font-bold tracking-wide uppercase"
+                >
+                  {slide.title}
+                </h2>
                 <h1
                   style={{ fontFamily: "Epika" }}
                   className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-5xl font-bold tracking-wide uppercase"
                 >
                   {slide.amount}
                 </h1>
-                <h2
-                  style={{ fontFamily: "Epika" }}
-                  className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl font-bold tracking-wide uppercase"
-                >
-                  {slide.name}
-                </h2>
-                <p className="text-xl font-light">{slide.description}</p>
+                <p className="text-xl font-light">{slide.tagline}</p>
                 <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
                   Apply Now
                 </button>
@@ -136,25 +137,25 @@ if (!slide) {
             <div className="w-[30%] bg-[#2d2d2d] flex items-center justify-center text-center pl-[5%]">
               <div className="max-w-md text-white space-y-4">
                 <div className="flex justify-center">
-                  <img
-                    src="https://landing.istitutomarangoni.com/images/logo_marangoni.svg"
+                <img
+                    src={slide.university.logo.asset.url}
                     alt="Logo"
-                    className="w-48 h-auto"
+                    className="w-36 h-auto"
                   />
                 </div>
                 <h1
                   style={{ fontFamily: "Epika" }}
                   className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-5xl font-bold tracking-wide uppercase"
                 >
-                  {slide.heading}
+                  {slide.title}
                 </h1>
                 <h2
                   style={{ fontFamily: "Epika" }}
                   className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-4xl font-bold tracking-wide uppercase"
                 >
-                  {slide.name}
+                  {slide.amount}
                 </h2>
-                <p className="text-xl font-light">{slide.description}</p>
+                <p className="text-xl font-light">{slide.tagline}</p>
                 <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
                   Apply Now
                 </button>
@@ -195,11 +196,11 @@ if (!slide) {
         <img src={slide.image} alt="Slide" className="w-full h-64 object-cover" />
         <div className="bg-[#2d2d2d] px-6 py-8 text-center space-y-4">
           <div className="flex justify-center">
-            <img
-              src="https://landing.istitutomarangoni.com/images/logo_marangoni.svg"
-              alt="Logo"
-              className="w-48 h-auto"
-            />
+          <img
+                    src={slide.university.logo.asset.url}
+                    alt="Logo"
+                    className="w-36 h-auto"
+                  />
           </div>
           <h1
             style={{ fontFamily: "Epika" }}
@@ -211,9 +212,9 @@ if (!slide) {
             style={{ fontFamily: "Epika" }}
             className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] bg-clip-text text-transparent text-3xl font-bold tracking-wide uppercase"
           >
-            {slide.name}
+            {slide.title}
           </h2>
-          <p className="text-lg font-light">{slide.description}</p>
+          <p className="text-lg font-light">{slide.tagline}</p>
           <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
             Apply Now
           </button>

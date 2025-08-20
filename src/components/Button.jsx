@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import '../index.css'
+import { useNavigate } from 'react-router-dom';
+const Button = ({text,to}) => {
+  const navigate = useNavigate();
 
-const Button = ({text}) => {
   return (
     <StyledWrapper>
       <button className="btn-31">
-        <span className="text-container">
+        <span className="text-container"  onClick={() => navigate(to)}>
           <span className="text font-roboto text-[10px]">{text}</span>
         </span>
       </button>
