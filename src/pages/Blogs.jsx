@@ -6,9 +6,9 @@ export default function Blogsind() {
       {/* Main Image */}
       <div>
         <img
-          src="University-Section.png"
+          src="blog.jpg"
           alt=""
-          className="w-full h-[80vh] object-cover"
+          className="w-full h-[50vh] object-cover"
         />
       </div>
 
