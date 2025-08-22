@@ -1,3 +1,5 @@
+import GoldButton from '../components/Goldbutton';
+
 export default function Eventsind() {
   return (
     <div>
@@ -17,9 +19,10 @@ export default function Eventsind() {
             The details of the event will be displayed here. This section can include information about the event's purpose, date, time.
           </p>
           <p className="text-white"><span className="text-xl my-4">Date : </span>25/08/25</p>
-          <button className="mt-4 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] text-black font-Thin rounded hover:scale-102 transition duration-300 cursor-pointer">
+          {/* <button className="mt-4 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b] text-black font-Thin rounded hover:scale-102 transition duration-300 cursor-pointer">
             Apply now
-          </button>
+          </button> */}
+          <GoldButton text={'Apply Now'} to="/events"/>
         </div>
       </div>
 
@@ -40,9 +43,10 @@ export default function Eventsind() {
           <p className="mt-2 font-thin">
             Brief description of the blog content goes here. It should be concise and engaging to encourage readers to click through.
           </p>
-          <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-black font-Thin  rounded hover:scale-102 transition-all duration-300 cursor-pointer">
+          {/* <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-black font-Thin  rounded hover:scale-102 transition-all duration-300 cursor-pointer">
             Apply Now
-          </button>
+          </button> */}
+          <GoldButton text={'Apply Now'} to="/events"/>
         </div>
 
         {/* Blog 2 */}
@@ -57,9 +61,10 @@ export default function Eventsind() {
           <p className="mt-2 font-thin">
             Brief description of the blog content goes here. It should be concise and engaging to encourage readers to click through.
           </p>
-          <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-black font-Thin rounded hover:scale-102 transition-all duration-300 cursor-pointer">
+          {/* <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-black font-Thin rounded hover:scale-102 transition-all duration-300 cursor-pointer">
             Apply Now
-          </button>
+          </button> */}
+          <GoldButton text={'Apply Now'} to="/events"/>
         </div>
 
         {/* Blog 3 */}
@@ -74,9 +79,10 @@ export default function Eventsind() {
           <p className="mt-2 font-thin">
             Brief description of the blog content goes here. It should be concise and engaging to encourage readers to click through.
           </p>
-          <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-black font-Thin rounded hover:scale-102 transition-all duration-300 cursor-pointer">
+          {/* <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-black font-Thin rounded hover:scale-102 transition-all duration-300 cursor-pointer">
             Apply Now
-          </button>
+          </button> */}
+          <GoldButton text={'Apply Now'} to="/events"/>
         </div>
      </div>
       </div>

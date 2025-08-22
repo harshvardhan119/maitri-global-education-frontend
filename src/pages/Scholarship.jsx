@@ -1,5 +1,6 @@
 import {React,useEffect,useState} from 'react';
 import '../index.css';
+import GoldButton from '../components/Goldbutton';
 
 const scholarshipData = [
     {
@@ -120,12 +121,13 @@ useEffect(() => {
                             {item.amount}
                         </h1>
                         <p className="text-md font-bold">Deadline: {item.deadline}</p>
-                        <button  
+                        {/* <button  
                             style={{ fontFamily: 'Montserrat' }}  
                             className="mt-2 px-6 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-black font-semibold rounded hover:opacity-90 transition cursor-pointer hover:scale-105"
                         >
                             Apply
-                        </button>
+                        </button> */}
+                        <GoldButton text={'Apply Now'} to="/scholarship"/>
                     </div>
                 ))}
             </div>
