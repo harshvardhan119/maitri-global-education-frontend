@@ -19,10 +19,17 @@ import Explore from './pages/Explore';
 
 import Careers from './components/Careers';
 import University from './components/University';
-import ScholarshipForm from './pages/ScholarshipForm';
+
+
 import Blogsind from './pages/Blogs';
 import Eventsind from './pages/Events';
+import Universitydetail from './pages/University';
+
+import ScholarshipForm from './pages/ScholarshipForm';
+
+
 import BlogsForm from './pages/BlogsForm';
+
 
 
 
@@ -36,7 +43,12 @@ function App() {
           <Route path="/about" element={<Abt/>} />
           <Route path="/explore" element={<Explore/>}/>
           {/* added for testing */}
+
+          <Route path="/universities" element={<Universitydetail/>}/>
+          <Route path="/universities/:Universityname" element={<Universitydetail/>}/>
+
           <Route path="/scholarship-form" element={<ScholarshipForm/>}/>
+
           <Route path="/events" element={<Eventsind/>}/>
           <Route path="/blogs" element={<Blogsind/>}/>
           <Route path="/events" element={<Event/>}/>
