@@ -82,7 +82,7 @@ useEffect(() => {
         <h1
           style={{ fontFamily: "Epika" }}
           className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b]
-          bg-clip-text text-transparent text-3xl md:text-6xl font-bold uppercase drop-shadow-lg 
+          bg-clip-text text-transparent text-3xl md:text-5xl font-bold uppercase drop-shadow-lg 
           max-w-[90vw] sm:max-w-3xl mx-auto md:mx-0"
         >
           STUDY IN PRESTIGIOUS LOCATIONS
