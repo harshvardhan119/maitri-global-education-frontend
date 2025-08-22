@@ -30,8 +30,8 @@ function HeroTitle() {
       <span className="shine"></span>
     </button> */}
 
-    <GoldButton text={'View Scholarships'} to="/scholarship"/>
-    <GoldButton text={'Explore'} to="/explore"/>
+    <Button text={'View Scholarships'} to="/scholarship"/>
+    <Button text={'Explore'} to="/explore"/>
 
   
 </div>

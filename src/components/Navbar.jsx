@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import "../font.css";
 
 const navLinks = [
   { title: "HOME", href: "/" },
@@ -18,10 +17,13 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav  style={{ fontFamily: 'roboto'}} className="w-full bg-black text-gray-300 z-20  font-thin">
-      {/* Hamburger for mobile - always top right */}
+    <nav
+      style={{ fontFamily: "roboto" }}
+      className="w-full bg-black text-gray-300 z-20 font-thin"
+    >
+      {/* Hamburger for mobile + tablets */}
       <button
-        className="md:hidden absolute top-3 right-4 p-2 focus:outline-none z-50"
+        className="lg:hidden absolute top-3 right-4 p-2 focus:outline-none z-50"
         onClick={() => setMenuOpen((prev) => !prev)}
         aria-label="Toggle menu"
       >
@@ -29,21 +31,21 @@ export default function Navbar() {
         <span className="block w-7 h-0.5 bg-white mb-1 rounded"></span>
         <span className="block w-7 h-0.5 bg-white rounded"></span>
       </button>
+
       {/* Row 1: Logo */}
-      <div  href="/" className="flex flex-col items-center py-1">
+      <div href="/" className="flex flex-col items-center py-1">
         <img
-         
           src="/maitri.png"
           alt="maitri logo"
           className="h-16 w-auto mx-auto"
         />
-        {/* <p className="text-white text-xs mt-1 font-antic">Nurturing Dreams Since 2009</p> */}
       </div>
+
       {/* Row 2: Nav Links */}
       <div className="relative">
-        {/* Nav links (desktop) */}
-        <div className="hidden md:flex justify-center gap-14 py-1 text-sm md:text-base">
-          {navLinks.map((item, id) => (
+        {/* Nav links (desktop only) */}
+        <div className="hidden lg:flex justify-center gap-14 py-1 text-sm lg:text-base">
+          {navLinks.map((item, id) =>
             item.title === "SCHOLARSHIPS" ? (
               <Link
                 key={id}
@@ -61,12 +63,13 @@ export default function Navbar() {
                 {item.title}
               </a>
             )
-          ))}
+          )}
         </div>
-        {/* Nav links (mobile, toggled) */}
+
+        {/* Nav links (mobile + tablet, toggled) */}
         {menuOpen && (
-          <div className="md:hidden fixed top-0 left-0 right-0 bg-black flex flex-col items-center h-full justify-center gap-4 py-4 shadow-lg animate-fade-in z-40">
-            {navLinks.map((item, id) => (
+          <div className="lg:hidden fixed top-0 left-0 right-0 bg-black flex flex-col items-center h-full justify-center gap-4 py-4 shadow-lg animate-fade-in z-40">
+            {navLinks.map((item, id) =>
               item.title === "SCHOLARSHIPS" ? (
                 <Link
                   key={id}
@@ -86,7 +89,7 @@ export default function Navbar() {
                   {item.title}
                 </a>
               )
-            ))}
+            )}
           </div>
         )}
       </div>
