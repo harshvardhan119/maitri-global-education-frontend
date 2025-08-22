@@ -1,9 +1,47 @@
-export default function Course() {
+import { Link } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
+import { useState,useEffect } from "react";
+
+
+
+export default function Universitydetail() {
+  const { Universityname } = useParams(); 
+  const[universitydata, setuniversityData] = useState({});
+   useEffect(() => {
+  if (!Universityname) return;
+
+  const query = `*[_type == "university" && Universityname=="${Universityname}"]{
+    Universityname,
+    "logo":logo.asset->url,
+    campus->{ name },
+    metaTitle,
+    metaDescription
+  }`;
+
+  const encodedQuery = encodeURIComponent(query);
+
+  fetch(`https://poxqiqf3.api.sanity.io/v2021-10-21/data/query/production?query=${encodedQuery}`)
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to fetch universities");
+      return res.json();
+    })
+    .then(data => {
+      if (data.result && data.result.length > 0) {
+        setuniversityData(data.result[0]); 
+        console.log("Fetched:", data.result[0]);
+      } else {
+        console.log("No data found for", Universityname);
+      }
+    })
+    .catch(err => console.error("Error fetching universities:", err));
+}, [Universityname]);
   return (
     <div className="relative w-full h-auto">
       {/* Full width image */}
+     
       <div className="w-full h-[50vh] relative">
-        <img src="course2.jpg" alt="" className="w-full h-full object-cover opacity-95" />
+        <img src={universitydata.logo} alt="" className="w-full h-full object-cover opacity-95" />
 
         {/* Text overlay */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
@@ -12,7 +50,7 @@ export default function Course() {
             className="bg-gradient-to-r from-[#d4af37] via-[#f5deb3] to-[#b8860b]
               bg-clip-text text-transparent text-3xl md:text-6xl font-bold uppercase drop-shadow-lg max-w-[90vw] sm:max-w-3xl"
           >
-            University name
+             {universitydata.Universityname}
           </h2>
           <p className="text-white text-2xl mt-4 max-w-[90vw] sm:max-w-xl drop-shadow-md">
             Details about courses will go here and more information can be added as needed.
