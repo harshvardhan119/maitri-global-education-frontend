@@ -129,10 +129,8 @@ const University = () => {
                 </div>
 
                 {/* Button */}<Link to={`/universities/${card.Universityname}`}>
-               
-
-                
-                <GoldButton text={'Go to University Page'} ></Link>
+  <GoldButton text="Go to University Page" />
+</Link>
 
               </div>
             ))}
