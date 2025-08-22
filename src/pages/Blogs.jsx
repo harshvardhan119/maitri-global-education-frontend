@@ -1,14 +1,14 @@
 import React from 'react'
-
+import GoldButton from '../components/Goldbutton';
 export default function Blogsind() {
   return (
     <div className="">
       {/* Main Image */}
       <div>
         <img
-          src="University-Section.png"
+          src="blog.jpg"
           alt=""
-          className="w-full h-[80vh] object-cover"
+          className="w-full h-[50vh] object-cover"
         />
       </div>
 
@@ -62,9 +62,11 @@ export default function Blogsind() {
               name="textarea"
               className="border border-gray-300 rounded-md p-2 w-full"
             ></textarea>
-            <button className="px-6 py-2 w-full bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-white font-semibold rounded">
+            {/* <button className="px-6 py-2 w-full bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-white font-semibold rounded">
               Submit
-            </button>
+            </button> */}
+            <GoldButton text={'Apply Now'} to="/events"/>
+
           </form>
         </div>
       </div>
@@ -90,9 +92,10 @@ export default function Blogsind() {
           <p className="mt-2">
             Brief description of the blog content goes here. It should be concise and engaging to encourage readers to click through.
           </p>
-          <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-white font-semibold rounded">
+          {/* <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-white font-semibold rounded">
             Read More
-          </button>
+          </button> */}
+          <GoldButton text={'Read More'} to="/blogs"/>
         </div>
 
         {/* Blog 2 */}
@@ -107,9 +110,10 @@ export default function Blogsind() {
           <p className="mt-2">
             Brief description of the blog content goes here. It should be concise and engaging to encourage readers to click through.
           </p>
-          <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-white font-semibold rounded">
+          {/* <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-white font-semibold rounded">
             Read More
-          </button>
+          </button> */}
+          <GoldButton text={'Read More'} to="/blogs"/>
         </div>
 
         {/* Blog 3 */}
@@ -124,9 +128,10 @@ export default function Blogsind() {
           <p className="mt-2">
             Brief description of the blog content goes here. It should be concise and engaging to encourage readers to click through.
           </p>
-          <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-white font-semibold rounded">
-            Read More
-          </button>
+            {/* <button className="mt-4 px-4 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-white font-semibold rounded">
+              Read More
+            </button> */}
+            <GoldButton text={'Read More'} to="/blogs"/>
         </div>
       </div>
     </div>

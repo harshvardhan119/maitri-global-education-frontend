@@ -1,4 +1,5 @@
 import React, { useState ,useEffect} from "react";
+import GoldButton from "./Goldbutton";
 
 
 
@@ -112,9 +113,10 @@ if (!slide) {
                   {slide.amount}
                 </h1>
                 <p className="text-xl font-light">{slide.tagline}</p>
-                <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
+                {/* <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
                   Apply Now
-                </button>
+                </button> */}
+                <GoldButton text={'Apply Now'} to="/scholarship"/>
                 <div className="flex justify-center gap-4 mt-4">
                   <button
                     onClick={prev}
@@ -156,9 +158,10 @@ if (!slide) {
                   {slide.amount}
                 </h2>
                 <p className="text-xl font-light">{slide.tagline}</p>
-                <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
+                {/* <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
                   Apply Now
-                </button>
+                </button> */}
+                <GoldButton text={'Apply Now'} to="/scholarship"/>
                 <div className="flex justify-center gap-4 mt-4">
                   <button
                     onClick={prev}
@@ -215,9 +218,10 @@ if (!slide) {
             {slide.title}
           </h2>
           <p className="text-lg font-light">{slide.tagline}</p>
-          <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
+          {/* <button className="bg-white text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-200 transition hover:scale-105 cursor-pointer">
             Apply Now
-          </button>
+          </button> */}
+          <GoldButton text={'Apply Now'} to="/scholarship"/>
           <div className="flex justify-center gap-4 mt-6">
             <button
               onClick={prev}

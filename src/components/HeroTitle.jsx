@@ -1,5 +1,6 @@
 import '../index.css'
 import Button from './Button'
+import GoldButton from './Goldbutton'
 function HeroTitle() {
     return (
         <>
@@ -29,8 +30,8 @@ function HeroTitle() {
       <span className="shine"></span>
     </button> */}
 
-    <Button text={'View Scholarships'} to="/scholarship"/>
-    <Button text={'Explore'} to="/explore"/>
+    <GoldButton text={'View Scholarships'} to="/scholarship"/>
+    <GoldButton text={'Explore'} to="/explore"/>
 
   
 </div>

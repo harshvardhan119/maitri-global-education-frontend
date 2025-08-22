@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
 import { Link } from "react-router-dom";
+
+import GoldButton from "./Goldbutton";
+
 
 const University = () => {
   const [cardData, setCardData] = useState([]);
@@ -125,9 +129,11 @@ const University = () => {
                 </div>
 
                 {/* Button */}<Link to={`/universities/${card.Universityname}`}>
-                <button className="mt-4 px-4 py-2 bg-gray-300 text-black rounded-full text-sm font-semibold hover:bg-gray-300 transition">
-                  Go to University Page →
-                </button></Link>
+               
+
+                
+                <GoldButton text={'Go to University Page'} ></Link>
+
               </div>
             ))}
         </div>

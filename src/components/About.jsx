@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import GoldButton from "./Goldbutton";
 
 export default function About() {
   useEffect(() => {
@@ -19,9 +20,10 @@ export default function About() {
         </h2>
         <div className="flex flex-col gap-4 w-full">
          <p>At Maitri Global Education, we provide expert guidance for international admissions, visa processing, and career counseling. Our mission is to make global education accessible and hassle-free for every student.</p>
-          <button className="w-full border border-black px-6 py-3 text-left font-bold text-black text-base md:text-lg flex items-center justify-between transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:cursor-pointer">
+          {/* <button className="w-full border border-black px-6 py-3 text-left font-bold text-black text-base md:text-lg flex items-center justify-between transition-all duration-300 ease-in-out hover:bg-black hover:text-white hover:cursor-pointer">
   More <span className="ml-auto">&gt;</span>
-</button>
+</button> */}
+<GoldButton text={'More'} to="/about"/> 
 
         </div>
       </div>

@@ -1,5 +1,6 @@
-import React from 'react';
+import {React,useEffect,useState} from 'react';
 import '../index.css';
+import GoldButton from '../components/Goldbutton';
 
 const scholarshipData = [
     {
@@ -35,6 +36,46 @@ const scholarshipData = [
 ];
 
 const Scholarship = () => {
+
+    const[slides,setslides] = useState([]);
+  
+ 
+useEffect(() => {
+    const query = `*[_type == "scholarship"]{
+  title,
+  amount,
+  tagline,
+  "image":image.asset->url,
+  deadline,
+  university->{ 
+    name,
+    logo {
+      asset -> {
+        url
+      }
+    }
+  }
+}`;
+
+    const encodedQuery = encodeURIComponent(query);
+
+    fetch(`https://poxqiqf3.api.sanity.io/v2021-10-21/data/query/production?query=${encodedQuery}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch from Sanity");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setslides(data.result);
+      })
+      .catch((err) => {
+        console.error("Error fetching scholarships:", err);
+      });
+  }, []);
+
+
+
     return (
         <div className='mx-8'>
             {/* Deep sleep effect from top-left */}
@@ -59,7 +100,7 @@ const Scholarship = () => {
             </h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8 p-6">
-                {scholarshipData.map((item, index) => (
+                {slides.map((item, index) => (
                     <div key={index} className="p-2">
                         <img
                             src={item.image}
@@ -67,18 +108,26 @@ const Scholarship = () => {
                             className="image-tilt-left w-full h-60 rounded-lg shadow-md object-cover filter grayscale hover:grayscale-0 transition duration-500 ease-in-out"
                         />
                         <h1
-                            style={{ fontFamily: 'Montserrat' }}
+                            style={{ fontFamily: 'Epika' }}
                             className="inline-block text-lg md:text-xl font-bold mb-2 mt-4 leading-tight tracking-wide uppercase drop-shadow-lg"
                         >
                             {item.title}
                         </h1>
+                        &nbsp;
+                        <h1
+                            style={{ fontFamily: 'Epika' }}
+                            className="inline-block text-lg md:text-xl font-bold mb-2 mt-4 leading-tight tracking-wide uppercase drop-shadow-lg"
+                        >
+                            {item.amount}
+                        </h1>
                         <p className="text-md font-bold">Deadline: {item.deadline}</p>
-                        <button  
+                        {/* <button  
                             style={{ fontFamily: 'Montserrat' }}  
                             className="mt-2 px-6 py-2 bg-gradient-to-r from-[#d4af37] via-[#e6c200] to-[#b8860b] text-black font-semibold rounded hover:opacity-90 transition cursor-pointer hover:scale-105"
                         >
                             Apply
-                        </button>
+                        </button> */}
+                        <GoldButton text={'Apply Now'} to="/scholarship"/>
                     </div>
                 ))}
             </div>
