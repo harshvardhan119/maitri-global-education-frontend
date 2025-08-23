@@ -15,6 +15,8 @@ import Testomonials from './components/Testomonials';
 import Scholarships from './components/Scholarships';
 import Event from './components/Event';
 
+import Exp from './pages/Exp';
+
 import Explore from './pages/Explore';
 
 import Careers from './components/Careers';
@@ -52,6 +54,8 @@ function App() {
           <Route path="/events" element={<Eventsind/>}/>
           <Route path="/blogs" element={<Blogsind/>}/>
           <Route path="/events" element={<Event/>}/>
+          <Route path="/exp" element={<Exp/>}/>
+
           <Route path="/blogs-form" element={<BlogsForm/>}/>
           {/* <Route path="/services" element={<Serices/>}/> */}
           

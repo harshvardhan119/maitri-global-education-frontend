@@ -128,7 +128,8 @@ const University = () => {
                   </p>
                 </div>
 
-                {/* Button */}<Link to={`/universities/${card.Universityname}`}>
+                {/* Button */}
+                <Link to={`/universities/${card.Universityname}`}>
   <GoldButton text="Go to University Page" />
 </Link>
 
@@ -184,9 +185,13 @@ const University = () => {
           </div>
 
           {/* Button */}
-          <button className="mt-4 px-4 py-2 bg-lime-400 text-black rounded-full text-sm font-semibold hover:bg-lime-300 transition">
+          {/* <button className="mt-4 px-4 py-2 bg-lime-400 text-black rounded-full text-sm font-semibold hover:bg-lime-300 transition">
             Go to University Page →
-          </button>
+          </button> */}
+
+          <Link to={`/universities/${cardData[currentIndex].Universityname}`}>  
+          <GoldButton text={"Go to University Page →"}  />
+          </Link>
         </div>
 
         {/* Navigation Buttons */}
